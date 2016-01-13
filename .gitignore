@@ -1,0 +1,9 @@
+node_modules/
+.vscode/
+.DS_Store
+npm-debug.log
+*.sublime-*
+.node-version
+.nvmrc
+jsconfig.json
+.sass-cache/
