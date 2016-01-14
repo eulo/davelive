@@ -1,4 +1,7 @@
 Base = require '../base'
+ScrollMagic = require 'scrollmagic'
+TweenMax = require 'gsap'
+require 'animation.gsap'
 
 Home = Backbone.View.extend
   el: '.base__content'
@@ -16,17 +19,26 @@ Home = Backbone.View.extend
     @.render()
     $('.parallax-window').parallax()
 
-    ###
-    $('.home__carousel').pagepiling
-      direction: 'horizontal'
-      sectionSelector: '.home__carousel__section'
-    Controller = new ScrollMagic.Controller()
-    Scene = new ScrollMagic.Scene
-      offset: $('.home__carousel').position().top
-      duration: 500
-    Scene.setPin '.home__carousel'
-    Scene.addTo Controller
-    ###
+    Controller = new ScrollMagic.Controller
+      globalSceneOptions:
+        triggerHook: 'onLeave'
+
+    $('.home__carousel__section').each (i, el)->
+
+      Scene = new ScrollMagic.Scene
+        triggerElement: @
+        duration: 600
+        triggerHook: 1
+
+      Scene.setPin @
+
+      if i != 0
+        Ani = TweenMax.from $(this), 1,
+          yPercent: 0
+          xPercent: 100
+        Scene.setTween Ani
+
+      Controller.addScene Scene
 
   link: (event)->
     event.preventDefault()
