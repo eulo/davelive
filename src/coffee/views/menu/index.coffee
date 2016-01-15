@@ -18,6 +18,7 @@ Menu = Backbone.View.extend
   closeMenu: ->
     $('.menu__container').removeClass 'active'
     $('.base__container').removeClass 'menu-open'
+    return true
 
   render: ->
     @.$el.html @.template

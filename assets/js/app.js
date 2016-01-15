@@ -27238,7 +27238,8 @@ Menu = Backbone.View.extend({
   },
   closeMenu: function() {
     $('.menu__container').removeClass('active');
-    return $('.base__container').removeClass('menu-open');
+    $('.base__container').removeClass('menu-open');
+    return true;
   },
   render: function() {
     return this.$el.html(this.template);

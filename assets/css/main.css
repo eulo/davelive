@@ -13796,6 +13796,9 @@ p, body {
   .base__container {
     transition: transform 0.3s ease-in-out;
     background-color: white;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
   }
   .base__container.menu-open {
     transform: translateX(-80vw);
@@ -13807,7 +13810,7 @@ p, body {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 500;
+  z-index: 0;
   width: 80vw;
   height: 100vh;
   transform: translateX(100%);
