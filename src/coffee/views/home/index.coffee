@@ -23,22 +23,19 @@ Home = Backbone.View.extend
       globalSceneOptions:
         triggerHook: 'onLeave'
 
-    $('.home__carousel__section').each (i, el)->
+    Scene = new ScrollMagic.Scene
+      triggerElement: '.home__carousel'
+      duration: 1000
 
-      Scene = new ScrollMagic.Scene
-        triggerElement: @
-        duration: 600
-        triggerHook: 1
+    Scene.setPin '.home__carousel'
 
-      Scene.setPin @
+    Ani = new TimelineMax()
+    Ani.add TweenMax.to(".home__carousel--second", 1, {transform: "translateX(0)"})
+    Ani.add TweenMax.to(".home__carousel--third", 1, {transform: "translateX(0)"})
 
-      if i != 0
-        Ani = TweenMax.from $(this), 1,
-          yPercent: 0
-          xPercent: 100
-        Scene.setTween Ani
+    Scene.setTween Ani
 
-      Controller.addScene Scene
+    Controller.addScene Scene
 
   link: (event)->
     event.preventDefault()
