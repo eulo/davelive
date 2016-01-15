@@ -1,0 +1,80 @@
+  &__about {
+    @extend .clearfix;
+    //display: table;
+    position: relative;
+
+    @include mq(xs) {
+      padding: 60px 0;
+    }
+
+    h2 {
+      color: $titleRed;
+      font-size: 36px;
+      margin-top: 0;
+    }
+
+    h5 {
+      font-size: 19px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+    li {
+      font-size: 18px;
+    }
+
+    &__header {
+      margin-bottom: 3em;
+    }
+
+    &__leftimage {
+      width: 20%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background: transparent;
+      position: absolute;
+
+      @include mq(xs) {
+        display: none;
+      }
+    }
+    &__rightcont {
+      width: 70%;
+      padding: 5% 0 5% 25%;
+
+      @include mq(xs) {
+        width: auto;
+        padding: 0;
+      }
+    }
+  }
+
+  &__banner {
+    @extend .clearfix;
+    width: 100%;
+    height: 280px;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+
+    $svg-gradient-shim-threshold: 1 !global;
+    @include background-image(linear-gradient(to right, #3c1822, #cc1740, #b2466a));
+
+    @include mq(xs) {
+      height: auto;
+    }
+
+    h3 {
+      margin: 0;
+      color: white;
+      line-height: 280px;
+      text-align: center;
+
+      @include mq(xs) {
+        margin: 50px 0;
+        padding: 0 20px;
+        line-height: 48px;
+        font-size: 32px;
+      }
+    }
+  }

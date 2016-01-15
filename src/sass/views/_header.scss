@@ -1,0 +1,52 @@
+
+.header {
+  background-color: $colRed;
+
+  &__nav {
+    color: white;
+    width: 100%;
+    height: 135px;
+
+    @include mq(xs) {
+      height: 48px;
+    }
+
+    .brand-logo {
+      background-image: url(../img/Logo.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 20rem;
+      height: 135px; 
+      float: left;
+      //margin-left: 4.800000000000001vmin;
+      background-position: left 67%;
+      display: block;
+      text-indent: -9999px;
+
+      @include mq(xs) {
+        height: 48px;
+        background-position: left center;
+      }
+    }
+
+    ul {
+
+      @include mq(xs) {
+        display: none;
+      }
+
+      li {
+        @include exo-font();
+        display: inline-block;
+        list-style: none;
+        padding-top: 80px;
+        margin-left: 25px;
+
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}

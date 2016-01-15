@@ -1,0 +1,93 @@
+
+.footer {
+  position: relative;
+  padding: 180px 0;
+  color: white;
+  background: transparent;
+
+  @include mq(xs) {
+    padding: 60px 0;
+  }
+
+  &__gradient {
+    background-color: rgba(0,0,0,0.8);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+  }
+
+  &__container {
+
+    h2 {
+      margin-top: 0;
+    }
+
+    ul {
+      padding: 0;
+
+      li {
+        list-style: none; 
+        line-height: 1.5em;
+        padding: 15px 0;
+
+        @include mq(xs) {
+          line-height: 1.5em;
+          font-size: 1em;
+          padding: 0.5em 0;
+
+        }
+
+        a {
+          color: white;
+        }
+      }
+    }
+
+    p, li {
+      font-size: 18px; 
+    }
+
+    i.icon {
+      width: 1.5em;
+      height: 1.5em;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-right: 1em;
+      
+      &--email {
+        background-image:url(../img/home/contact/Email.png);
+      }
+      &--location {
+        background-image:url(../img/home/contact/Location.png);
+      }
+    }
+
+    form {
+
+      input, textarea {
+        border-radius: 0;
+        padding: 8px 35px;
+      }
+      input {
+        height: 50px;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 40px;
+        background: $titleRed;
+        border-color: $titleRed;
+
+        &:hover {
+          background: white;
+          border-color: white;
+          color: $titleRed;
+        }
+      }
+    } 
+  }
+}

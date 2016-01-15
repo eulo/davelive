@@ -1,0 +1,135 @@
+  &__header {   
+    @extend .clearfix;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 380px;
+
+    @include mq(xs) {
+      height: 280px;
+    }
+
+    &--solutions {
+      background: transparent;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin: 80px 0 20px;
+
+      @include mq(xs) {
+        margin-top: 50px;
+      }
+    }
+
+    &__navigation {
+      @extend .clearfix;
+      width: (44+140)*3px;
+      margin: auto;
+
+      @include mq(xs) {
+        width: 100%;
+        max-width: (44+140)*3px;
+      }
+
+      .icon {
+        float:left;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 140px;
+        height: 140px;
+        margin: 22px;
+        cursor: pointer;
+        background-position: center;
+
+        @include mq(xs) {
+          width: 30%;
+          //max-width: 140px;
+          margin: 1%;
+          background-size: contain;
+        }
+        
+        &--retailers {
+          background-image: url(../img/industry-solutions/Icons/reg/Solution_1.png);
+
+          &:hover, &.active {
+            background-image: url(../img/industry-solutions/Icons/active/Solution_1A.png);
+          }
+        }
+        &--manufactuers {
+          background-image: url(../img/industry-solutions/Icons/reg/Solution_2.png);
+
+          &:hover, &.active {
+            background-image: url(../img/industry-solutions/Icons/active/Solution_2A.png);
+          }
+        }
+        &--events {
+          background-image: url(../img/industry-solutions/Icons/reg/Solution_3.png);
+
+          &:hover, &.active {
+            background-image: url(../img/industry-solutions/Icons/active/Solution_3A.png);
+          }
+        }
+      }
+    }
+  }
+
+  &__section {
+    padding: 5% 0;
+    position: relative;
+    overflow: hidden;
+
+    @include mq(xs) {
+      padding: 60px 0;
+    }
+
+    &--retailers, &--manufactuers, &--events {
+      display: none;
+    }
+
+    &.active {
+      display: block;
+    }
+
+    h2 {
+      color: $titleRed;
+      font-size: 36px;
+      margin-top: 0;
+    }
+
+    h5 {
+      font-size: 19px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+    li {
+      font-size: 18px;
+    }
+
+    .icon {
+      max-width: 350px;
+      height: 350px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-top: 40px;
+      width: 80%;
+
+      @include mq(xs) {
+        display: none;
+      }
+
+      &--retailers {
+        background-image: url(../img/industry-solutions/Icons/large/Solution_Large_1.png);
+      }
+      &--manufactuers {
+        background-image: url(../img/industry-solutions/Icons/large/Solution_Large_2.png);
+      }
+      &--events {
+        background-image: url(../img/industry-solutions/Icons/large/Solution_Large_3.png);
+      }
+    }
+
+
+  }
