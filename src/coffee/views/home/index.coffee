@@ -23,7 +23,29 @@ Home = Backbone.View.extend
       @.initAnimation()
 
   initAnimation: ->
-    @.Controller = new ScrollMagic.Controller
+
+    ## Computer
+
+    @.Computer = new ScrollMagic.Controller
+      globalSceneOptions:
+        triggerHook: 'onCenter'
+
+    Scene = new ScrollMagic.Scene
+      triggerElement: '.home__section--second'
+      duration: 1000
+
+    #Scene.setPin '.home__section--second'
+
+    Ani = TweenMax.from '.home__section__computer', 1,
+      xPercent: -100
+
+    Scene.setTween Ani
+
+    @.Computer.addScene Scene
+
+    ## Carousel
+
+    @.Carousel = new ScrollMagic.Controller
       globalSceneOptions:
         triggerHook: 'onLeave'
 
@@ -39,7 +61,7 @@ Home = Backbone.View.extend
 
     Scene.setTween Ani
 
-    @.Controller.addScene Scene
+    @.Carousel.addScene Scene
 
   link: (event)->
     event.preventDefault()
@@ -47,8 +69,10 @@ Home = Backbone.View.extend
     Base.GlobalEvents.trigger 'navigate', view
 
   destroy: ->
-    if @.Controller
-      @.Controller.destroy()
+    if @.Carousel
+      @.Carousel.destroy()
+    if @.Computer
+      @.Computer.destroy()
 
   render: ->
     @.$el.html @.template
