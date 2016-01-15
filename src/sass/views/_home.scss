@@ -104,6 +104,7 @@
         width: 15em;
         font-size: 24px;
         @include vertical-align();
+        padding: 0.35em 0 0.45em;;
 
         &:hover {
           color: #ff3f40;
@@ -129,12 +130,18 @@
 
       h2 {
         color: $titleRed;
+        font-size: 45px;
+        margin-bottom: 30px;
       }
       p {
-
+        font-size: 20px;
       }
       ul {
         padding-left: 20px;
+
+        li {
+          font-size: 20px;
+        }
       }
     }
 
@@ -142,6 +149,7 @@
       background-color: #f9f9f9;
       //padding-bottom: 280px;
       height: auto;
+      padding: 10% 0;
 
       .container {
         //@include vertical-align(absolute);
@@ -154,9 +162,11 @@
       h2 {
         color: $titleRed;
         margin-top: 0;
+        font-size: 45px;
       }
       h5 {
         color: $titleRed;
+        font-size: 24px;
 
         @include mq(xs) {
           text-align: center;
@@ -167,6 +177,7 @@
         @include mq(xs) {
           text-align: center;
         }
+        font-size: 20px;
         &.red-text {
           color: $titleRed;
 
@@ -327,7 +338,7 @@
         color: white;
       }
       h3 {
-        font-size: 44px;
+        font-size: 45px;
         margin-top: 0;
 
         @include mq(xs) {
@@ -335,7 +346,7 @@
         }
       }
       h4 {
-        font-size: 30px;
+        font-size: 35px;
         @extend .clearfix;
         position: relative;
 
@@ -378,7 +389,7 @@
         }
       }
       p, li {
-        font-size: 18px;
+        font-size: 20px;
 
         @include mq(xs) {
           font-size: 17px;

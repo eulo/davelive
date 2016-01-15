@@ -13999,6 +13999,7 @@ p {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  padding: 0.35em 0 0.45em;
 }
 .home__header__request .btn:hover {
   color: #ff3f40;
@@ -14018,13 +14019,22 @@ p {
 }
 .home__section--first h2 {
   color: #db2522;
+  font-size: 45px;
+  margin-bottom: 30px;
+}
+.home__section--first p {
+  font-size: 20px;
 }
 .home__section--first ul {
   padding-left: 20px;
 }
+.home__section--first ul li {
+  font-size: 20px;
+}
 .home__section--second {
   background-color: #f9f9f9;
   height: auto;
+  padding: 10% 0;
 }
 @media (max-width: 767px) {
   .home__section--second {
@@ -14034,14 +14044,19 @@ p {
 .home__section--second h2 {
   color: #db2522;
   margin-top: 0;
+  font-size: 45px;
 }
 .home__section--second h5 {
   color: #db2522;
+  font-size: 24px;
 }
 @media (max-width: 767px) {
   .home__section--second h5 {
     text-align: center;
   }
+}
+.home__section--second p {
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   .home__section--second p {
@@ -14222,7 +14237,7 @@ p {
   color: white;
 }
 .home__carousel__section h3 {
-  font-size: 44px;
+  font-size: 45px;
   margin-top: 0;
 }
 @media (max-width: 767px) {
@@ -14231,7 +14246,7 @@ p {
   }
 }
 .home__carousel__section h4 {
-  font-size: 30px;
+  font-size: 35px;
   position: relative;
 }
 @media (max-width: 767px) {
@@ -14277,7 +14292,7 @@ p {
   background-image: url(../img/home/sell-more/Unique.png);
 }
 .home__carousel__section p, .home__carousel__section li {
-  font-size: 18px;
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   .home__carousel__section p, .home__carousel__section li {
@@ -14626,6 +14641,7 @@ p {
 .footer__container form input, .footer__container form textarea {
   border-radius: 0;
   padding: 8px 35px;
+  font-size: 18px;
 }
 .footer__container form input {
   height: 50px;
