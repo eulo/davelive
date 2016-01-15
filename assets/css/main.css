@@ -13755,6 +13755,8 @@ p, body {
 
 p {
   font-weight: 300;
+  font-size: 19px;
+  line-height: 1.5em;
 }
 
 .btn {
@@ -14038,6 +14040,9 @@ p {
   .home__section--first {
     padding: 30px 0;
   }
+}
+.home__section--first .home__section__gradient {
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
 }
 .home__section--first h2 {
   color: #db2522;
