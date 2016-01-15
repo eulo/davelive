@@ -14290,6 +14290,7 @@ p {
   .home__carousel__section {
     position: relative;
     top: auto;
+    background-position: center;
   }
 }
 .home__carousel__section .container {
@@ -14305,7 +14306,7 @@ p {
 .home__carousel__section h3 {
   font-size: 45px;
   margin-top: 0;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 @media (max-width: 767px) {
   .home__carousel__section h3 {
