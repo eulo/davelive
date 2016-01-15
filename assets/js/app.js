@@ -27112,12 +27112,13 @@ Home = Backbone.View.extend({
     var Ani, Scene;
     this.Computer = new ScrollMagic.Controller({
       globalSceneOptions: {
-        triggerHook: 'onCenter'
+        triggerHook: 'onEnter'
       }
     });
     Scene = new ScrollMagic.Scene({
       triggerElement: '.home__section--second',
-      duration: 1000
+      duration: 1000,
+      triggerHook: 'onEnter'
     });
     Ani = TweenMax.from('.home__section__computer', 1, {
       xPercent: -100

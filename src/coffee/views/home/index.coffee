@@ -28,11 +28,12 @@ Home = Backbone.View.extend
 
     @.Computer = new ScrollMagic.Controller
       globalSceneOptions:
-        triggerHook: 'onCenter'
+        triggerHook: 'onEnter'
 
     Scene = new ScrollMagic.Scene
       triggerElement: '.home__section--second'
       duration: 1000
+      triggerHook: 'onEnter'
 
     #Scene.setPin '.home__section--second'
 
