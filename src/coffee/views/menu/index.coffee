@@ -1,28 +1,25 @@
 Base = require '../base'
 
-About = Backbone.View.extend
-  el: '.base__content'
+Menu = Backbone.View.extend
+  el: '.base__menu'
 
-  header: require '../header/index'
   template: require './index.hbs'
 
   additionalEvents: {}
   originalEvents:
-    'click [data-section]': 'sectionNav'
+    'click .menu__list a': 'closeMenu'
 
   events: ->
     return _.extend {}, @.originalEvents, @.additionalEvents
 
   initialize: ->
-    new @.header
     @.render()
 
-    $('.page__about__leftimage').parallax()
-
-  destroy: ->
-    # Nothing
+  closeMenu: ->
+    $('.menu__container').removeClass 'active'
+    $('.base__container').removeClass 'menu-open'
 
   render: ->
     @.$el.html @.template
 
-module.exports = About
+module.exports = Menu

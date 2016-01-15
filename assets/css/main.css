@@ -8178,7 +8178,7 @@ button.close {
   font-weight: normal;
   font-style: normal;
 }
-.fa {
+.fa, .mobile-menu-toggle {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -8249,10 +8249,10 @@ button.close {
   float: right;
 }
 
-.fa.fa-pull-left {
+.fa.fa-pull-left, .fa-pull-left.mobile-menu-toggle {
   margin-right: .3em;
 }
-.fa.fa-pull-right {
+.fa.fa-pull-right, .fa-pull-right.mobile-menu-toggle {
   margin-left: .3em;
 }
 
@@ -8265,10 +8265,10 @@ button.close {
   float: left;
 }
 
-.fa.pull-left {
+.fa.pull-left, .pull-left.mobile-menu-toggle {
   margin-right: .3em;
 }
-.fa.pull-right {
+.fa.pull-right, .pull-right.mobile-menu-toggle {
   margin-left: .3em;
 }
 
@@ -9104,7 +9104,8 @@ button.close {
 
 .fa-navicon:before,
 .fa-reorder:before,
-.fa-bars:before {
+.fa-bars:before,
+.mobile-menu-toggle:before {
   content: "";
 }
 
@@ -13773,6 +13774,66 @@ p, body {
   border: 2px solid white;
 }
 
+.mobile-menu-toggle {
+  display: none;
+  font-size: 2em;
+  line-height: 48px;
+}
+@media (max-width: 767px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .base {
+    background: #373a47;
+    box-shadow: inset 20vw 0 35px rgba(33, 33, 33, 0.8);
+  }
+}
+
+@media (max-width: 767px) {
+  .base__container {
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+  }
+  .base__container.menu-open {
+    transform: translateX(-80vw);
+  }
+}
+
+.menu__container {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 500;
+  width: 80vw;
+  height: 100vh;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+@media (max-width: 767px) {
+  .menu__container {
+    display: block;
+  }
+}
+.menu__container.active {
+  transform: translateX(0);
+}
+.menu__list a {
+  display: block;
+  color: white;
+  font-size: 1.2em;
+  border-bottom: 1px solid #ddd;
+  padding: 0.8em;
+  text-decoration: none;
+  color: #c94e50;
+}
+.menu__list a:hover {
+  text-decoration: none;
+}
+
 .header {
   background-color: #d82520;
 }
@@ -13837,6 +13898,11 @@ p, body {
   width: 100%;
   height: 130px;
 }
+@media (max-width: 767px) {
+  .home__header__nav {
+    height: 48px;
+  }
+}
 .home__header__nav .brand-logo {
   background-image: url(../img/Logo.png);
   background-size: contain;
@@ -13848,6 +13914,12 @@ p, body {
   background-position: left 90%;
   display: block;
   text-indent: -9999px;
+}
+@media (max-width: 767px) {
+  .home__header__nav .brand-logo {
+    height: 48px;
+    background-position: left center;
+  }
 }
 @media (max-width: 767px) {
   .home__header__nav ul {
@@ -14030,6 +14102,11 @@ p, body {
   height: 100vh;
   overflow: hidden;
 }
+@media (max-width: 767px) {
+  .home__carousel {
+    height: auto;
+  }
+}
 .home__carousel__gradient {
   height: 100%;
   width: 100%;
@@ -14052,6 +14129,11 @@ p, body {
   background-image: url(../img/home/sell-more/Sell_More_2.jpg);
   transform: translateX(100%);
 }
+@media (max-width: 767px) {
+  .home__carousel--second {
+    transform: none;
+  }
+}
 .home__carousel--second .home__carousel__gradient {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlNDM0YSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmU0MzRhIiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZlNDM0YSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -14063,6 +14145,11 @@ p, body {
 .home__carousel--third {
   background-image: url(../img/home/sell-more/Sell_More_3.jpg);
   transform: translateX(100%);
+}
+@media (max-width: 767px) {
+  .home__carousel--third {
+    transform: none;
+  }
 }
 .home__carousel--third .home__carousel__gradient {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNWMxOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmY1YzE5IiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmNWMxOSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
@@ -14079,6 +14166,12 @@ p, body {
   background-repeat: no-repeat;
   position: absolute;
   top: 0;
+}
+@media (max-width: 767px) {
+  .home__carousel__section {
+    position: relative;
+    top: auto;
+  }
 }
 .home__carousel__section .container {
   position: relative;
@@ -14145,11 +14238,13 @@ p, body {
 .home__carousel__section h4 i.icon--unique {
   background-image: url(../img/home/sell-more/Unique.png);
 }
-.home__carousel__section p {
+.home__carousel__section p, .home__carousel__section li {
   font-size: 18px;
 }
-.home__carousel__section li {
-  font-size: 18px;
+@media (max-width: 767px) {
+  .home__carousel__section p, .home__carousel__section li {
+    font-size: 17px;
+  }
 }
 .home__carousel__section img {
   width: 100%;
@@ -14354,7 +14449,11 @@ p, body {
 }
 .page__about {
   position: relative;
-  padding: 60px 0;
+}
+@media (max-width: 767px) {
+  .page__about {
+    padding: 60px 0;
+  }
 }
 .page__about h2 {
   color: #db2522;
@@ -14433,6 +14532,11 @@ p, body {
   color: white;
   background: transparent;
 }
+@media (max-width: 767px) {
+  .footer {
+    padding: 60px 0;
+  }
+}
 .footer__gradient {
   background-color: rgba(0, 0, 0, 0.8);
   height: 100%;
@@ -14451,6 +14555,13 @@ p, body {
   list-style: none;
   line-height: 1.5em;
   padding: 15px 0;
+}
+@media (max-width: 767px) {
+  .footer__container ul li {
+    line-height: 1.5em;
+    font-size: 1em;
+    padding: 0.5em 0;
+  }
 }
 .footer__container ul li a {
   color: white;

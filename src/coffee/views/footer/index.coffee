@@ -1,6 +1,6 @@
 Base = require '../base'
 
-Home = Backbone.View.extend
+Footer = Backbone.View.extend
   el: '.base__footer'
 
   template: require './index.hbs'
@@ -19,4 +19,4 @@ Home = Backbone.View.extend
   render: ->
     @.$el.html @.template
 
-module.exports = Home
+module.exports = Footer

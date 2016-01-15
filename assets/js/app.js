@@ -26837,6 +26837,7 @@ Base.GlobalEvents = _.extend({}, Backbone.Events);
 Router = require('./router');
 
 Router.listenTo(Base.GlobalEvents, 'navigate', function(route) {
+  Router.current.destroy();
   return this.navigate(route, {
     trigger: true,
     replace: true
@@ -26932,6 +26933,7 @@ About = Backbone.View.extend({
     this.render();
     return $('.page__about__leftimage').parallax();
   },
+  destroy: function() {},
   render: function() {
     return this.$el.html(this.template);
   }
@@ -26956,14 +26958,17 @@ Handlebars = require('hbsfy/runtime');
 BaseView = Backbone.View.extend({
   el: '#main',
   template: require('./base.hbs'),
+  menu: require('./menu/index'),
   footer: require('./footer/index'),
   initialize: function() {
     this.render();
-    return new this.footer;
+    new this.footer;
+    return new this.menu;
   },
   events: {
     'click a[href]': 'link',
-    'click [data-scroll]': 'scrollTo'
+    'click [data-scroll]': 'scrollTo',
+    'click .mobile-menu-toggle': 'mobileMenu'
   },
   link: function(event) {
     var view;
@@ -26984,6 +26989,12 @@ BaseView = Backbone.View.extend({
       scrollTop: $(_id).position().top
     }, speed || 800);
   },
+  mobileMenu: function(event) {
+    var $this;
+    $this = $(event.currentTarget);
+    $('.menu__container').toggleClass('active');
+    return $('.base__container').toggleClass('menu-open');
+  },
   render: function() {
     return this.$el.html(this.template);
   }
@@ -26993,19 +27004,19 @@ module.exports = new BaseView;
 
 
 
-},{"./base.hbs":35,"./footer/index":36,"hbsfy/runtime":28}],35:[function(require,module,exports){
+},{"./base.hbs":35,"./footer/index":36,"./menu/index":44,"hbsfy/runtime":28}],35:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"base\">\n  <div class=\"base__header\"></div>\n  <div class=\"base__content\"></div>\n  <div class=\"base__footer\"></div>\n  <div class=\"base__modals\"></div>\n</div>\n";
+    return "<div class=\"base\">\n  <div class=\"base__container\">\n    <div class=\"base__header\"></div>\n    <div class=\"base__content\"></div>\n    <div class=\"base__footer\"></div>\n  </div>\n  <div class=\"base__modals\"></div>\n  <div class=\"base__menu\"></div>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":28}],36:[function(require,module,exports){
-var Base, Home;
+var Base, Footer;
 
 Base = require('../base');
 
-Home = Backbone.View.extend({
+Footer = Backbone.View.extend({
   el: '.base__footer',
   template: require('./index.hbs'),
   additionalEvents: {},
@@ -27024,7 +27035,7 @@ Home = Backbone.View.extend({
   }
 });
 
-module.exports = Home;
+module.exports = Footer;
 
 
 
@@ -27066,7 +27077,7 @@ module.exports = Header;
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class='header'>\n  <div class='header__nav'>\n    <div class='container'>\n      <div class='pull-left'>\n        <a href='/' class='brand-logo'> \n          DAVELIVE &trade;\n        </a>\n      </div>\n      <div class='pull-right'>\n        <ul>\n          <li><a href='about-us'>About</a></li> \n          <li><a href='#' data-scroll='.footer'>Contact</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n";
+    return "<div class='header'>\n  <div class='header__nav'>\n    <div class='container'>\n      <div class='pull-left'>\n        <a href='/' class='brand-logo'> \n          DAVELIVE &trade;\n        </a>\n      </div>\n      <div class='pull-right'>\n        <ul>\n          <li><a href='about-us'>About</a></li> \n          <li><a href='#' data-scroll='.footer'>Contact</a></li>\n        </ul>\n        <div class='mobile-menu-toggle'></div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":28}],40:[function(require,module,exports){
@@ -27091,10 +27102,15 @@ Home = Backbone.View.extend({
     return _.extend({}, this.originalEvents, this.additionalEvents);
   },
   initialize: function() {
-    var Ani, Controller, Scene;
     this.render();
     $('.parallax-window').parallax();
-    Controller = new ScrollMagic.Controller({
+    if ($(window).width() >= 768) {
+      return this.initAnimation();
+    }
+  },
+  initAnimation: function() {
+    var Ani, Scene;
+    this.Controller = new ScrollMagic.Controller({
       globalSceneOptions: {
         triggerHook: 'onLeave'
       }
@@ -27112,13 +27128,18 @@ Home = Backbone.View.extend({
       transform: "translateX(0)"
     }));
     Scene.setTween(Ani);
-    return Controller.addScene(Scene);
+    return this.Controller.addScene(Scene);
   },
   link: function(event) {
     var view;
     event.preventDefault();
     view = $(event.currentTarget).attr('href');
     return Base.GlobalEvents.trigger('navigate', view);
+  },
+  destroy: function() {
+    if (this.Controller) {
+      return this.Controller.destroy();
+    }
   },
   render: function() {
     this.$el.html(this.template);
@@ -27134,7 +27155,7 @@ module.exports = Home;
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class='home__header'>\n\n  <div class='home__header__nav'>\n    <div class='container'>\n      <div class='pull-left'>\n        <a href='/' class='brand-logo'> \n          DAVELIVE &trade;\n        </a>\n      </div>\n      <div class='pull-right'>\n        <ul>\n          <li><a href='/about-us'>About</a></li> \n          <li><a href='#' data-scroll='.footer'>Contact</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n\n  <div class='home__header__container container'>\n\n    <div class='home__header__intro'>\n      <h1>Engage more. Learn more. Sell more</h1>\n      <p>\n        Dave Live is an intelligent marketing platform built for broadcasting<br>\n        custom content to touch-screens within brick and mortar sales environments.\n      </p>\n      <i class='fa fa-play-circle-o'></i>\n    </div>\n\n  </div>\n\n  <div class='home__header__request'>\n    <button type='button' class='btn btn-default'>Request a live demo</button>\n  </div>\n\n</div>\n\n<div class='home__section home__section--first parallax-window' data-image-src='assets/img/home/engage/Engage.jpg' data-parallax=\"scroll\">\n  <div class='home__section__gradient'></div>\n  <div class='home__section__container container'>\n\n    <div class='row'>\n      <div class='col-sm-12'>\n        <h2>Engage more</h2>\n      </div>\n      <div class='col-sm-4'>\n        <p>Enhance levels of consumer engagement during\n        the final stages on the path to purchase.</p>\n      </div>\n      <div class='col-sm-4'>\n        <p>With Dave Live you can manage, schedule\n        and broadcast custom interactive content in\n        real time from anywhere in the world.\n        From one touchscreen to hundreds, you now\n        have the power to engage your customers personally in\n        any sales environment.</p>\n      </div>\n      <div class='col-sm-4'>\n        <p><strong>Using Dave Live, your customers can:</strong></p>\n        <ul>\n          <li>Select and compare products</li>\n          <li>Share products via email or social media</li>\n          <li>Sign-up to your loyalty program</li>\n          <li>View real-time promotions</li>\n        </ul>\n      </div>\n    </div>\n\n    <div class='home__section__display'>\n      <img src='assets/img/home/engage/BikeUI.jpg'>\n    </div>\n\n  </div>\n</div>\n\n<div class='home__section home__section--second'>\n  <div class='home__section__container container'>\n    <div class='row'>\n      <div class='col-sm-4'></div>\n      <div class='col-sm-8'>\n        <h2>Learn more</h2>\n      </div>\n    </div>\n\n    <div class='row'>\n      <div class='col-sm-4'></div>\n      <div class='col-sm-4'>\n        <p class='red-text'>Dave Live delivers real time analytics\n        of the physical and digital sales environment that can be accessed via \n        the dashboard.</p> \n      </div>\n      <div class='col-sm-4'></div>\n    </div>\n\n    <div class='row'>\n      <div class='col-sm-4'></div>\n      <div class='col-sm-4'>\n        <i class='icon icon--physical'></i>\n        <h5>Physical analysis</h5> \n        <p>Measure shopper volumes, dwell times and\n        brand loyalty in real-time to gauge\n        performance and maximise conversions.</p>\n      </div>\n      <div class='col-sm-4'>\n        <i class='icon icon--media'></i>\n        <h5>Media analytics</h5> \n        <p>Highlight elements of media and marketing\n        that are driving the best response across all\n        channels.</p>\n      </div>\n    </div>\n\n    <div class='row'>\n      <div class='col-sm-4'></div>\n      <div class='col-sm-4'>\n        <i class='icon icon--screen'></i>\n        <h5>Screen analytics</h5> \n        <p>Screen interactions provide real-time\n        insights into trending products or latest\n        campaigns.</p>\n      </div>\n      <div class='col-sm-4'>\n        <i class='icon icon--lead'></i>\n        <h5>Lead generation</h5>\n        <p>Data collected through touch screen\n        interactions, can direct future marketing\n        activities.</p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class='home__section__banner'>\n  <h3>\"With limitless flexibility, content is tailored to meet specific<br>\n  objectives, and address individual business challenges.\"</h3>\n</div>\n\n<div class='home__carousel'>\n  <div class='home__carousel__section home__carousel--first'>\n\n    <div class='home__carousel__gradient'></div>\n\n    <div class='container'>\n      <div class='row'>\n        <div class='col-md-5 col-sm-8'>\n          <h3>Sell more</h3>\n          <h4>\n            <i class='icon icon--maximise'></i>\n            <div>Maximise sales</div>\n          </h4>\n          <p>With Dave Live, you’ll know exactly where your\n          customers are on the path-to-purchase.</p>\n          \n          <p>Market to customers individually, with targeted content\n          and personalised recommendations. Capture sales\n          leads and provide buyers with real-time access to\n          detailed product information.</p> \n        </div> \n      </div>\n    </div>\n\n  </div>\n  <div class='home__carousel__section home__carousel--second'>\n  \n    <div class='home__carousel__gradient'></div>\n\n    <div class='container'>\n      <div class='row'>\n        <div class='col-md-5 col-sm-8'>\n          <h3>Sell more</h3>\n          <h4>\n            <i class='icon icon--communicate'></i>\n            <div>Communicate<br> brand messages</div>\n          </h4>\n          <p>The boundless flexibility of Dave Live enables you to create unique \n          messages for different locations across your network. Ensure the right \n          brand messages are reaching the right customer, every time.</p>\n          <p>Engaging experiences on-site will increase dwell time, keeping visitors in \n          your selling zone for longer.</p> \n        </div> \n      </div>\n    </div>\n\n  </div>\n  <div class='home__carousel__section home__carousel--third'>\n\n    <div class='home__carousel__gradient'></div>\n\n    <div class='container'>\n      <div class='row'>\n        <div class='col-md-5 col-sm-8'>\n          <h3>Sell more</h3>\n          <h4>\n            <i class='icon icon--unique'></i>\n            <div>Unique<br> opportunities</div>\n          </h4>\n          <p>What sets Dave Live apart is its combination of marketing expertise and technical know-\n          how. We offer an end-to-end solution, with abundant benefits:</p> \n          <ul>\n            <li>Ease of set-up and maintenance</li>\n            <li>24/7 support</li>\n            <li>Streamlining the sales process</li>\n            <li>Sell advertising space to partners and suppliers</li>\n          </ul>\n        </div> \n      </div>\n    </div>\n\n  </div>\n</div>\n\n<div class='home__links'>\n  <div class='home__links__banner'>\n    <h2>Industry Solutions</h2>\n  </div>\n\n  <div class='row'>\n    <!--<div class='col-sm-4 parallax-window' data-link='true' href='industry-solutions#retailers' data-image-src='assets/img/home/industry-solutions/Industry_1.jpg' data-parallax=\"scroll\">-->\n    <div class='col-sm-4' data-link='true' href='industry-solutions#retailers' style='background-image: url(assets/img/home/industry-solutions/Industry_1.jpg);'>\n      <div class='home__links__gradient'></div>\n      <div class='home__links__text'>\n        <h3>Retailers<br>&nbsp;</h3>\n        <a href='industry-solutions#retailers' class='btn'>Discover</a>\n      </div>\n    </div>\n    <!--<div class='col-sm-4 parallax-window' data-link='true' href='industry-solutions#manufactuers' data-image-src='assets/img/home/industry-solutions/Industry_2.jpg' data-parallax=\"scroll\">-->\n    <div class='col-sm-4 mobile-arrow' data-link='true' href='industry-solutions#manufactuers' style='background-image: url(assets/img/home/industry-solutions/Industry_2.jpg);'>\n      <div class='home__links__gradient'></div>\n      <div class='home__links__text'>\n        <h3>Manufactuers<br> &amp; wholesalers</h3>\n        <a href='industry-solutions#manufactuers' class='btn'>Discover</a>\n      </div>\n    </div>\n    <!--<div class='col-sm-4 parallax-window' data-link='true' href='industry-solutions#events' data-image-src='assets/img/home/industry-solutions/Industry_3.jpg' data-parallax=\"scroll\">-->\n    <div class='col-sm-4 mobile-arrow' data-link='true' href='industry-solutions#events' style='background-image: url(assets/img/home/industry-solutions/Industry_3.jpg);'>\n      <div class='home__links__gradient'></div>\n      <div class='home__links__text'>\n        <h3>Event spaces<br> &amp; stadia</h3>\n        <a href='industry-solutions#events' class='btn'>Discover</a>\n      </div>\n    </div>\n  </div>\n</div>\n";
+    return "<div class='home__header'>\n\n  <div class='home__header__nav'>\n    <div class='container'>\n      <div class='pull-left'>\n        <a href='/' class='brand-logo'> \n          DAVELIVE &trade;\n        </a>\n      </div>\n      <div class='pull-right'>\n        <ul>\n          <li><a href='/about-us'>About</a></li> \n          <li><a href='#' data-scroll='.footer'>Contact</a></li>\n        </ul>\n        <div class='mobile-menu-toggle'></div>\n      </div>\n    </div>\n  </div>\n\n  <div class='home__header__container container'>\n\n    <div class='home__header__intro'>\n      <h1>Engage more. Learn more. Sell more</h1>\n      <p>\n        Dave Live is an intelligent marketing platform built for broadcasting<br>\n        custom content to touch-screens within brick and mortar sales environments.\n      </p>\n      <i class='fa fa-play-circle-o'></i>\n    </div>\n\n  </div>\n\n  <div class='home__header__request'>\n    <button type='button' class='btn btn-default'>Request a live demo</button>\n  </div>\n\n</div>\n\n<div class='home__section home__section--first parallax-window' data-image-src='assets/img/home/engage/Engage.jpg' data-parallax=\"scroll\">\n  <div class='home__section__gradient'></div>\n  <div class='home__section__container container'>\n\n    <div class='row'>\n      <div class='col-sm-12'>\n        <h2>Engage more</h2>\n      </div>\n      <div class='col-sm-4'>\n        <p>Enhance levels of consumer engagement during\n        the final stages on the path to purchase.</p>\n      </div>\n      <div class='col-sm-4'>\n        <p>With Dave Live you can manage, schedule\n        and broadcast custom interactive content in\n        real time from anywhere in the world.\n        From one touchscreen to hundreds, you now\n        have the power to engage your customers personally in\n        any sales environment.</p>\n      </div>\n      <div class='col-sm-4'>\n        <p><strong>Using Dave Live, your customers can:</strong></p>\n        <ul>\n          <li>Select and compare products</li>\n          <li>Share products via email or social media</li>\n          <li>Sign-up to your loyalty program</li>\n          <li>View real-time promotions</li>\n        </ul>\n      </div>\n    </div>\n\n    <div class='home__section__display'>\n      <img src='assets/img/home/engage/BikeUI.jpg'>\n    </div>\n\n  </div>\n</div>\n\n<div class='home__section home__section--second'>\n  <div class='home__section__container container'>\n    <div class='row'>\n      <div class='col-sm-4'></div>\n      <div class='col-sm-8'>\n        <h2>Learn more</h2>\n      </div>\n    </div>\n\n    <div class='row'>\n      <div class='col-sm-4'></div>\n      <div class='col-sm-4'>\n        <p class='red-text'>Dave Live delivers real time analytics\n        of the physical and digital sales environment that can be accessed via \n        the dashboard.</p> \n      </div>\n      <div class='col-sm-4'></div>\n    </div>\n\n    <div class='row'>\n      <div class='col-sm-4'></div>\n      <div class='col-sm-4'>\n        <i class='icon icon--physical'></i>\n        <h5>Physical analysis</h5> \n        <p>Measure shopper volumes, dwell times and\n        brand loyalty in real-time to gauge\n        performance and maximise conversions.</p>\n      </div>\n      <div class='col-sm-4'>\n        <i class='icon icon--media'></i>\n        <h5>Media analytics</h5> \n        <p>Highlight elements of media and marketing\n        that are driving the best response across all\n        channels.</p>\n      </div>\n    </div>\n\n    <div class='row'>\n      <div class='col-sm-4'></div>\n      <div class='col-sm-4'>\n        <i class='icon icon--screen'></i>\n        <h5>Screen analytics</h5> \n        <p>Screen interactions provide real-time\n        insights into trending products or latest\n        campaigns.</p>\n      </div>\n      <div class='col-sm-4'>\n        <i class='icon icon--lead'></i>\n        <h5>Lead generation</h5>\n        <p>Data collected through touch screen\n        interactions, can direct future marketing\n        activities.</p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class='home__section__banner'>\n  <h3>\"With limitless flexibility, content is tailored to meet specific<br>\n  objectives, and address individual business challenges.\"</h3>\n</div>\n\n<div class='home__carousel'>\n  <div class='home__carousel__section home__carousel--first'>\n\n    <div class='home__carousel__gradient'></div>\n\n    <div class='container'>\n      <div class='row'>\n        <div class='col-md-5 col-sm-8'>\n          <h3>Sell more</h3>\n          <h4>\n            <i class='icon icon--maximise'></i>\n            <div>Maximise sales</div>\n          </h4>\n          <p>With Dave Live, you’ll know exactly where your\n          customers are on the path-to-purchase.</p>\n          \n          <p>Market to customers individually, with targeted content\n          and personalised recommendations. Capture sales\n          leads and provide buyers with real-time access to\n          detailed product information.</p> \n        </div> \n      </div>\n    </div>\n\n  </div>\n  <div class='home__carousel__section home__carousel--second'>\n  \n    <div class='home__carousel__gradient'></div>\n\n    <div class='container'>\n      <div class='row'>\n        <div class='col-md-5 col-sm-8'>\n          <h3>Sell more</h3>\n          <h4>\n            <i class='icon icon--communicate'></i>\n            <div>Communicate<br> brand messages</div>\n          </h4>\n          <p>The boundless flexibility of Dave Live enables you to create unique \n          messages for different locations across your network. Ensure the right \n          brand messages are reaching the right customer, every time.</p>\n          <p>Engaging experiences on-site will increase dwell time, keeping visitors in \n          your selling zone for longer.</p> \n        </div> \n      </div>\n    </div>\n\n  </div>\n  <div class='home__carousel__section home__carousel--third'>\n\n    <div class='home__carousel__gradient'></div>\n\n    <div class='container'>\n      <div class='row'>\n        <div class='col-md-5 col-sm-8'>\n          <h3>Sell more</h3>\n          <h4>\n            <i class='icon icon--unique'></i>\n            <div>Unique<br> opportunities</div>\n          </h4>\n          <p>What sets Dave Live apart is its combination of marketing expertise and technical know-\n          how. We offer an end-to-end solution, with abundant benefits:</p> \n          <ul>\n            <li>Ease of set-up and maintenance</li>\n            <li>24/7 support</li>\n            <li>Streamlining the sales process</li>\n            <li>Sell advertising space to partners and suppliers</li>\n          </ul>\n        </div> \n      </div>\n    </div>\n\n  </div>\n</div>\n\n<div class='home__links'>\n  <div class='home__links__banner'>\n    <h2>Industry Solutions</h2>\n  </div>\n\n  <div class='row'>\n    <!--<div class='col-sm-4 parallax-window' data-link='true' href='industry-solutions#retailers' data-image-src='assets/img/home/industry-solutions/Industry_1.jpg' data-parallax=\"scroll\">-->\n    <div class='col-sm-4' data-link='true' href='industry-solutions#retailers' style='background-image: url(assets/img/home/industry-solutions/Industry_1.jpg);'>\n      <div class='home__links__gradient'></div>\n      <div class='home__links__text'>\n        <h3>Retailers<br>&nbsp;</h3>\n        <a href='industry-solutions#retailers' class='btn'>Discover</a>\n      </div>\n    </div>\n    <!--<div class='col-sm-4 parallax-window' data-link='true' href='industry-solutions#manufactuers' data-image-src='assets/img/home/industry-solutions/Industry_2.jpg' data-parallax=\"scroll\">-->\n    <div class='col-sm-4 mobile-arrow' data-link='true' href='industry-solutions#manufactuers' style='background-image: url(assets/img/home/industry-solutions/Industry_2.jpg);'>\n      <div class='home__links__gradient'></div>\n      <div class='home__links__text'>\n        <h3>Manufactuers<br> &amp; wholesalers</h3>\n        <a href='industry-solutions#manufactuers' class='btn'>Discover</a>\n      </div>\n    </div>\n    <!--<div class='col-sm-4 parallax-window' data-link='true' href='industry-solutions#events' data-image-src='assets/img/home/industry-solutions/Industry_3.jpg' data-parallax=\"scroll\">-->\n    <div class='col-sm-4 mobile-arrow' data-link='true' href='industry-solutions#events' style='background-image: url(assets/img/home/industry-solutions/Industry_3.jpg);'>\n      <div class='home__links__gradient'></div>\n      <div class='home__links__text'>\n        <h3>Event spaces<br> &amp; stadia</h3>\n        <a href='industry-solutions#events' class='btn'>Discover</a>\n      </div>\n    </div>\n  </div>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":28}],42:[function(require,module,exports){
@@ -27180,6 +27201,7 @@ Solutions = Backbone.View.extend({
     $this.addClass('active');
     return window.location.hash = section;
   },
+  destroy: function() {},
   render: function() {
     return this.$el.html(this.template);
   }
@@ -27193,7 +27215,45 @@ module.exports = Solutions;
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class='page__header page__header--solutions parallax-window' data-parallax='scroll' data-image-src='assets/img/industry-solutions/Industry_Solutions.jpg'>\n  <h1>Industry Solutions</h1>\n  <div class='page__header__navigation'>\n    <div class='icon icon--retailers' data-section='retailers'></div> \n    <div class='icon icon--manufactuers' data-section='manufactuers'></div> \n    <div class='icon icon--events' data-section='events'></div> \n  </div>\n</div>\n\n<div class='page__section page__section--retailers'>\n  <div class='page__section__container container'>\n    <div class='row'>\n      <div class='col-sm-2'></div>\n      <div class='col-sm-4'>\n        <h2>Retailers</h2>\n        <h5>Reimagine the way business is done in-store</h5>\n        <div class='icon icon--retailers'></div>\n      </div>\n      <div class='col-sm-5'>\n        <p>\n          With statistics suggesting consumers who pre-shop online are 15 to 30% \n          more likely to purchase in-store than traditional shoppers.\n        </p>\n\n        <p>\n          Dave Live takes all the advantages and opportunities associated with \n          ecommerce and delivers them live in store.\n        </p>\n\n        <p>\n          Employing this cutting-edge technology in your store provides endless\n          opportunities:\n        </p>\n\n        <ul>\n           <li>Display localised, real-time promotions, pricing and product information</li>\n           <li>Increase dwell time</li>\n           <li>Display entire product ranges at your customer’s fingertips with an ‘endless aisle’</li>\n           <li>See buying / product trends and understand shopper behaviour</li>\n           <li>Identify leaks in your sales funnel</li>\n           <li>Utilise mobile marketing</li>\n           <li>Build or grow your customer database</li>\n           <li>Offer shareable content</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class='page__section page__section--manufactuers'>\n  <div class='page__section__container container'>\n    <div class='row'>\n      <div class='col-sm-2'></div>\n      <div class='col-sm-4'>\n        <h2>Manufacturers and Wholesalers</h2>\n        <h5>Ensure your products are given the in-store prominence they deserve</h5>\n        <div class='icon icon--manufactuers'></div>\n      </div>\n      <div class='col-sm-5'>\n        <p>\n          With competing brands on the shelf, how can you ensure your\n          product stands out in a space you don’t own? How can you\n          encourage shoppers to engage with your brand, without direct\n          contact?\n        </p>\n\n        <p>\n          Dave Live is a powerful engagement tool that provides the unique\n          opportunity to insert your brand voice into somebody else’s retail\n          space.\n        </p>\n\n        <p>\n          By allowing you to communicate directly with shoppers, Dave Live\n          offers manufacturers and wholesalers a whole new world of\n          opportunity :\n        </p>\n\n        <ul>\n          <li>Display localised, real-time promotions, pricing and product information</li>\n          <li>Present entire product ranges at your customer’s fingertips with an ‘endless aisle’</li>\n          <li>See buying / product trends and understand shopper behaviour</li>\n          <li>Utilise mobile marketing</li>\n          <li>Build or grow your customer database</li>\n          <li>Offer shareable content</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class='page__section page__section--events'>\n  <div class='page__section__container container'>\n    <div class='row'>\n      <div class='col-sm-2'></div>\n      <div class='col-sm-4'>\n        <h2>Event spaces &amp; stadia</h2>\n        <h5>Make the most of your captive audience</h5>\n        <div class='icon icon--events'></div>\n      </div>\n      <div class='col-sm-5'>\n        <p>\n          Every day, your venue is flooded with patrons. This should equate to \n          endless opportunities to sell and upsell. But are you maximising these \n          opportunities?\n        </p>\n\n        <p>\n          The volume of footfall in event spaces makes them goldmines of \n          information. However, these goldmines are rarely excavated. Imagine if \n          you could engage with and communicate your messages to every \n          person walking through the door!\n        </p>\n\n        <p>\n          With Dave Live, the opportunities are endless:\n        </p>\n\n        <ul>\n          <li>sell the future - tease the next movie, show, match or event, providing immediate opportunities for ticket purchase</li>\n          <li>promote merchandise</li>\n          <li>manage loyalty programs and promote membership</li>\n          <li>display digital menus</li>\n          <li>assist way finding</li>\n          <li>utilise mobile marketing</li>\n          <li>build or grow your customer database</li>\n          <li>offer shareable content</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n";
+    return "<div class='page__header page__header--solutions parallax-window' data-parallax='scroll' data-image-src='assets/img/industry-solutions/Industry_Solutions.jpg'>\n  <h1>Industry Solutions</h1>\n  <div class='page__header__navigation'>\n    <div class='icon icon--retailers' data-section='retailers'></div> \n    <div class='icon icon--manufactuers' data-section='manufactuers'></div> \n    <div class='icon icon--events' data-section='events'></div> \n  </div>\n</div>\n\n<div class='page__section page__section--retailers'>\n  <div class='page__section__container container'>\n    <div class='row'>\n      <div class='col-md-2'></div>\n      <div class='col-md-4 col-sm-5'>\n        <h2>Retailers</h2>\n        <h5>Reimagine the way business is done in-store</h5>\n        <div class='icon icon--retailers'></div>\n      </div>\n      <div class='col-md-5 col-sm-7'>\n        <p>\n          With statistics suggesting consumers who pre-shop online are 15 to 30% \n          more likely to purchase in-store than traditional shoppers.\n        </p>\n\n        <p>\n          Dave Live takes all the advantages and opportunities associated with \n          ecommerce and delivers them live in store.\n        </p>\n\n        <p>\n          Employing this cutting-edge technology in your store provides endless\n          opportunities:\n        </p>\n\n        <ul>\n           <li>Display localised, real-time promotions, pricing and product information</li>\n           <li>Increase dwell time</li>\n           <li>Display entire product ranges at your customer’s fingertips with an ‘endless aisle’</li>\n           <li>See buying / product trends and understand shopper behaviour</li>\n           <li>Identify leaks in your sales funnel</li>\n           <li>Utilise mobile marketing</li>\n           <li>Build or grow your customer database</li>\n           <li>Offer shareable content</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class='page__section page__section--manufactuers'>\n  <div class='page__section__container container'>\n    <div class='row'>\n      <div class='col-md-2'></div>\n      <div class='col-md-4 col-sm-5'>\n        <h2>Manufacturers and Wholesalers</h2>\n        <h5>Ensure your products are given the in-store prominence they deserve</h5>\n        <div class='icon icon--manufactuers'></div>\n      </div>\n      <div class='col-md-5 col-sm-7'>\n        <p>\n          With competing brands on the shelf, how can you ensure your\n          product stands out in a space you don’t own? How can you\n          encourage shoppers to engage with your brand, without direct\n          contact?\n        </p>\n\n        <p>\n          Dave Live is a powerful engagement tool that provides the unique\n          opportunity to insert your brand voice into somebody else’s retail\n          space.\n        </p>\n\n        <p>\n          By allowing you to communicate directly with shoppers, Dave Live\n          offers manufacturers and wholesalers a whole new world of\n          opportunity :\n        </p>\n\n        <ul>\n          <li>Display localised, real-time promotions, pricing and product information</li>\n          <li>Present entire product ranges at your customer’s fingertips with an ‘endless aisle’</li>\n          <li>See buying / product trends and understand shopper behaviour</li>\n          <li>Utilise mobile marketing</li>\n          <li>Build or grow your customer database</li>\n          <li>Offer shareable content</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class='page__section page__section--events'>\n  <div class='page__section__container container'>\n    <div class='row'>\n      <div class='col-md-2'></div>\n      <div class='col-md-4 col-sm-5'>\n        <h2>Event spaces &amp; stadia</h2>\n        <h5>Make the most of your captive audience</h5>\n        <div class='icon icon--events'></div>\n      </div>\n      <div class='col-md-5 col-sm-7'>\n        <p>\n          Every day, your venue is flooded with patrons. This should equate to \n          endless opportunities to sell and upsell. But are you maximising these \n          opportunities?\n        </p>\n\n        <p>\n          The volume of footfall in event spaces makes them goldmines of \n          information. However, these goldmines are rarely excavated. Imagine if \n          you could engage with and communicate your messages to every \n          person walking through the door!\n        </p>\n\n        <p>\n          With Dave Live, the opportunities are endless:\n        </p>\n\n        <ul>\n          <li>sell the future - tease the next movie, show, match or event, providing immediate opportunities for ticket purchase</li>\n          <li>promote merchandise</li>\n          <li>manage loyalty programs and promote membership</li>\n          <li>display digital menus</li>\n          <li>assist way finding</li>\n          <li>utilise mobile marketing</li>\n          <li>build or grow your customer database</li>\n          <li>offer shareable content</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n";
+},"useData":true});
+
+},{"hbsfy/runtime":28}],44:[function(require,module,exports){
+var Base, Menu;
+
+Base = require('../base');
+
+Menu = Backbone.View.extend({
+  el: '.base__menu',
+  template: require('./index.hbs'),
+  additionalEvents: {},
+  originalEvents: {
+    'click .menu__list a': 'closeMenu'
+  },
+  events: function() {
+    return _.extend({}, this.originalEvents, this.additionalEvents);
+  },
+  initialize: function() {
+    return this.render();
+  },
+  closeMenu: function() {
+    $('.menu__container').removeClass('active');
+    return $('.base__container').removeClass('menu-open');
+  },
+  render: function() {
+    return this.$el.html(this.template);
+  }
+});
+
+module.exports = Menu;
+
+
+
+},{"../base":34,"./index.hbs":45}],45:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class='menu__container'>\n  <div class='menu__wrap'>\n    <div class='menu__list'>\n      <a href=''>Home</a>\n      <a href='industry-solutions'>Industry Solutions</a>\n      <a href='about-us'>About Us</a>\n      <a href='#' data-scroll='.footer'>Contact</a>\n    </div>\n  </div>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":28}]},{},[29])

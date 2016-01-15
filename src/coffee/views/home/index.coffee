@@ -19,7 +19,11 @@ Home = Backbone.View.extend
     @.render()
     $('.parallax-window').parallax()
 
-    Controller = new ScrollMagic.Controller
+    if $(window).width() >= 768
+      @.initAnimation()
+
+  initAnimation: ->
+    @.Controller = new ScrollMagic.Controller
       globalSceneOptions:
         triggerHook: 'onLeave'
 
@@ -35,12 +39,16 @@ Home = Backbone.View.extend
 
     Scene.setTween Ani
 
-    Controller.addScene Scene
+    @.Controller.addScene Scene
 
   link: (event)->
     event.preventDefault()
     view = $(event.currentTarget).attr 'href'
     Base.GlobalEvents.trigger 'navigate', view
+
+  destroy: ->
+    if @.Controller
+      @.Controller.destroy()
 
   render: ->
     @.$el.html @.template

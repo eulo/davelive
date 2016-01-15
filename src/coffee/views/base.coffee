@@ -5,15 +5,18 @@ BaseView = Backbone.View.extend
 
   template: require './base.hbs'
 
+  menu: require './menu/index'
   footer: require './footer/index'
 
   initialize: ->
     @.render()
     new @.footer
+    new @.menu
 
   events:
     'click a[href]': 'link'
     'click [data-scroll]': 'scrollTo'
+    'click .mobile-menu-toggle': 'mobileMenu'
 
   link: (event)->
     event.preventDefault()
@@ -32,6 +35,11 @@ BaseView = Backbone.View.extend
     $('html, body').animate
       scrollTop: $(_id).position().top
     , speed || 800
+
+  mobileMenu: (event) ->
+    $this = $(event.currentTarget)
+    $('.menu__container').toggleClass 'active'
+    $('.base__container').toggleClass 'menu-open'
 
   render: ->
     @.$el.html @.template

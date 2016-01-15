@@ -16,6 +16,7 @@ Base.GlobalEvents = _.extend {}, Backbone.Events
 
 Router = require './router'
 Router.listenTo Base.GlobalEvents, 'navigate', (route) ->
+  Router.current.destroy()
   @navigate route,
     trigger: true
     replace: true

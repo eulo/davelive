@@ -42,6 +42,9 @@ Solutions = Backbone.View.extend
 
     window.location.hash = section
 
+  destroy: ->
+    # Nothing
+
   render: ->
     @.$el.html @.template
 

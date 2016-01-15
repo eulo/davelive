@@ -63,6 +63,77 @@ p, body {
   }
 }
 
+.mobile-menu-toggle {
+  display: none;
+  @include mq(xs) {
+    display: block;
+  }
+
+  @extend .fa;
+  @extend .fa-bars;
+
+  font-size: 2em;
+  line-height: 48px;
+  
+}
+
+.base {
+  @include mq(xs) {
+    background: #373a47;
+    box-shadow: inset 20vw 0 35px rgba(33, 33, 33, 0.8);
+  }
+}
+.base__container {
+  @include mq(xs) {
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+    &.menu-open {
+      transform: translateX(-80vw);
+    }
+  }
+
+}
+
+.menu {
+  &__container {
+    display: none;
+    @include mq(xs) {
+      display: block;
+    }
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 500;
+    width: 80vw;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+  &__wrap {
+
+  }
+  &__list {
+    a {
+      display: block;
+      color: white;
+      font-size: 1.2em;
+      border-bottom: 1px solid #ddd;
+      padding: 0.8em;
+      text-decoration: none;
+      color: #c94e50;
+
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .header {
   background-color: $colRed;
 
@@ -132,6 +203,10 @@ p, body {
       width: 100%;
       height: 130px;
 
+      @include mq(xs) {
+        height: 48px;
+      }
+
       .brand-logo {
         background-image: url(../img/Logo.png);
         background-size: contain;
@@ -144,7 +219,13 @@ p, body {
         background-position: left 90%;
         display: block;
         text-indent: -9999px;
+
+        @include mq(xs) {
+          height: 48px;
+          background-position: left center;
+        }
       }
+
 
       ul {
         @include mq(xs) {
@@ -339,6 +420,10 @@ p, body {
     height: 100vh;
     overflow: hidden;
 
+    @include mq(xs) {
+      height: auto;
+    }
+
     &__gradient {
       height: 100%;
       width: 100%;
@@ -359,6 +444,10 @@ p, body {
       background-image: url(../img/home/sell-more/Sell_More_2.jpg);
       transform: translateX(100%);
 
+      @include mq(xs) {
+        transform: none;
+      }
+
       .home__carousel__gradient {
         @include background-image(linear-gradient(to right, rgba(254,67,74,1), rgba(254,67,74,0.8), rgba(254,67,74,0)));
       }
@@ -367,6 +456,10 @@ p, body {
     &--third {
       background-image: url(../img/home/sell-more/Sell_More_3.jpg);
       transform: translateX(100%);
+
+      @include mq(xs) {
+        transform: none;
+      }
 
       .home__carousel__gradient {
         @include background-image(linear-gradient(to right, rgba(255,92,25,1), rgba(255,92,25,0.8), rgba(255,92,25,0)));
@@ -380,6 +473,11 @@ p, body {
       background-repeat: no-repeat;
       position: absolute;
       top: 0;
+
+      @include mq(xs) {
+        position: relative;
+        top: auto;
+      }
 
       .container {
         @include vertical-align();
@@ -440,11 +538,12 @@ p, body {
           }
         }
       }
-      p {
+      p, li {
         font-size: 18px;
-      }
-      li {
-        font-size: 18px;
+
+        @include mq(xs) {
+          font-size: 17px;
+        }
       }
 
       img {
@@ -691,7 +790,10 @@ p, body {
     @extend .clearfix;
     //display: table;
     position: relative;
-    padding: 60px 0;
+
+    @include mq(xs) {
+      padding: 60px 0;
+    }
 
     h2 {
       color: $titleRed;
@@ -773,6 +875,10 @@ p, body {
   color: white;
   background: transparent;
 
+  @include mq(xs) {
+    padding: 60px 0;
+  }
+
   &__gradient {
     background-color: rgba(0,0,0,0.8);
     height: 100%;
@@ -795,6 +901,13 @@ p, body {
         list-style: none; 
         line-height: 1.5em;
         padding: 15px 0;
+
+        @include mq(xs) {
+          line-height: 1.5em;
+          font-size: 1em;
+          padding: 0.5em 0;
+
+        }
 
         a {
           color: white;
