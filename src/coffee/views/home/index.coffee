@@ -57,10 +57,10 @@ Home = Backbone.View.extend
     Scene.setPin '.home__carousel'
 
     Ani = new TimelineMax()
-    Ani.add TweenMax.to(".home__carousel--first", 1, {transform: "translateX(0%)"})
-    Ani.add TweenMax.to(".home__carousel--second", 1, {transform: "translateX(101%)"})
+    Ani.add TweenMax.to(".home__carousel--first", 0.5, {transform: "translateX(0%)"})
+    Ani.add TweenMax.to(".home__carousel--second", 0.5, {transform: "translateX(101%)"})
     Ani.add TweenMax.to(".home__carousel--second", 1, {transform: "translateX(0)"})
-    Ani.add TweenMax.to(".home__carousel--third", 1, {transform: "translateX(101%)"})
+    Ani.add TweenMax.to(".home__carousel--third", 0.5, {transform: "translateX(101%)"})
     Ani.add TweenMax.to(".home__carousel--third", 1, {transform: "translateX(0)"})
 
     Scene.setTween Ani

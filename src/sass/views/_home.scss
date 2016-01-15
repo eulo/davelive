@@ -274,6 +274,15 @@
       top: 0;
       height: 100%;
       width: 40vw;
+
+      @include mq(xs) {
+        position: static;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: 50vh;
+        margin-top:80px;
+      }
     }
 
     &__display {
@@ -395,6 +404,7 @@
       h3 {
         font-size: 45px;
         margin-top: 0;
+        margin-bottom: 40px;
 
         @include mq(xs) {
           font-size: 30px;
@@ -404,6 +414,7 @@
         font-size: 35px;
         @extend .clearfix;
         position: relative;
+        margin-bottom: 20px;
 
         @include mq(xs) {
           font-size: 24px;
