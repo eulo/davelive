@@ -38,10 +38,11 @@ h1,h2,h3,h4,h5,.btn {
 
 p, body {
   font-family: 'Lato', sans-serif;
+  //-webkit-font-smoothing: antialiased;
 }
 
 .btn {
-  font-weight: 600;
+  font-weight: 400;
   padding: 0.6em 0;
   width: 12em;
   font-size: 2rem;

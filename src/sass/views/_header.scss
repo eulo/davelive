@@ -45,6 +45,12 @@
 
         a {
           color: white;
+          font-size: 19px;
+
+          &:hover {
+            font-weight: bold;
+            text-decoration: none;
+          }
         }
       }
     }

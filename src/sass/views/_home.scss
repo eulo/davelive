@@ -53,6 +53,12 @@
 
           a {
             color: white;
+            font-size: 19px;
+
+            &:hover {
+              font-weight: bold;
+              text-decoration: none;
+            }
           }
         }
       }
@@ -65,8 +71,22 @@
         text-align: center;
         display: block;
       }
-      i {
-        font-size: 6em; 
+      h1 {
+        font-size: 45px;
+      }
+      p {
+        font-size: 24px;
+        margin-top: 40px;
+        line-height: 1.7em;
+      }
+      .play-button {
+        background-image: url(../img/home/hero/Play.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 90px auto 0;
+        width: 85px;
+        height: 85px;
+        cursor: pointer;
       }
     }
 
@@ -80,8 +100,9 @@
       //box-shadow: 0 0 5px rgba(0,0,0,0.6);
 
       .btn {
-        margin-top: 34px;
         width: 15em;
+        font-size: 24px;
+        @include vertical-align();
 
         &:hover {
           color: #ff3f40;
@@ -121,13 +142,17 @@
       //padding-bottom: 280px;
       height: auto;
 
+      .container {
+        //@include vertical-align(absolute);
+      }
+
       @include mq(xs) {
         padding: 40px 0 100px;
       }
 
       h2 {
         color: $titleRed;
-
+        margin-top: 0;
       }
       h5 {
         color: $titleRed;
@@ -191,6 +216,7 @@
       bottom: -50px;
       z-index: 2;
       width: 70vw;
+      max-width: 100%;
       margin: auto;
 
       @include mq(xs) {
@@ -405,7 +431,10 @@
         transition: all 0.2s linear;
 
         &.mobile-arrow {
+          border-left: 3px solid white;
           @include mq(xs) {
+            border: none;
+
             &:after, &:before {
               display: none;
             }
@@ -424,17 +453,12 @@
         }
 
         &:after {
-          border-color: rgba(136, 183, 213, 0);
+          //border-color: rgba(136, 183, 213, 0);
           border-top-color: white;
           border-width: 30px;
           margin-left: -30px;
         }
-        &:before {
-          border-color: rgba(194, 225, 245, 0);
-          border-top-color: white;
-          border-width: 36px;
-          margin-left: -36px;
-        }
+        
 
         h3 {
           text-align: center;
