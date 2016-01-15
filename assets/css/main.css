@@ -13901,6 +13901,10 @@ p {
   height: 100vh;
   position: relative;
   background-color: #d82520;
+  background-image: url(../img/home/hero/Hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .home__header__container {
   height: 100%;
@@ -14222,12 +14226,12 @@ p {
   background-image: url(../img/home/sell-more/Sell_More_1.jpg);
 }
 .home__carousel--first .home__carousel__gradient {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBlYWE5NSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMGVhYTk1IiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBlYWE5NSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYTU5MSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDBhNTkxIiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwYTU5MSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #0eaa95), color-stop(50%, rgba(14, 170, 149, 0.8)), color-stop(100%, rgba(14, 170, 149, 0)));
-  background-image: -moz-linear-gradient(left, #0eaa95, rgba(14, 170, 149, 0.8), rgba(14, 170, 149, 0));
-  background-image: -webkit-linear-gradient(left, #0eaa95, rgba(14, 170, 149, 0.8), rgba(14, 170, 149, 0));
-  background-image: linear-gradient(to right, #0eaa95, rgba(14, 170, 149, 0.8), rgba(14, 170, 149, 0));
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #00a591), color-stop(50%, rgba(0, 165, 145, 0.8)), color-stop(100%, rgba(0, 165, 145, 0)));
+  background-image: -moz-linear-gradient(left, #00a591, rgba(0, 165, 145, 0.8), rgba(0, 165, 145, 0));
+  background-image: -webkit-linear-gradient(left, #00a591, rgba(0, 165, 145, 0.8), rgba(0, 165, 145, 0));
+  background-image: linear-gradient(to right, #00a591, rgba(0, 165, 145, 0.8), rgba(0, 165, 145, 0));
 }
 .home__carousel--second {
   background-image: url(../img/home/sell-more/Sell_More_2.jpg);
@@ -14239,12 +14243,12 @@ p {
   }
 }
 .home__carousel--second .home__carousel__gradient {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlNDM0YSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmU0MzRhIiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZlNDM0YSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmM2Y0NSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmYzZjQ1IiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmM2Y0NSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #fe434a), color-stop(50%, rgba(254, 67, 74, 0.8)), color-stop(100%, rgba(254, 67, 74, 0)));
-  background-image: -moz-linear-gradient(left, #fe434a, rgba(254, 67, 74, 0.8), rgba(254, 67, 74, 0));
-  background-image: -webkit-linear-gradient(left, #fe434a, rgba(254, 67, 74, 0.8), rgba(254, 67, 74, 0));
-  background-image: linear-gradient(to right, #fe434a, rgba(254, 67, 74, 0.8), rgba(254, 67, 74, 0));
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ff3f45), color-stop(50%, rgba(255, 63, 69, 0.8)), color-stop(100%, rgba(255, 63, 69, 0)));
+  background-image: -moz-linear-gradient(left, #ff3f45, rgba(255, 63, 69, 0.8), rgba(255, 63, 69, 0));
+  background-image: -webkit-linear-gradient(left, #ff3f45, rgba(255, 63, 69, 0.8), rgba(255, 63, 69, 0));
+  background-image: linear-gradient(to right, #ff3f45, rgba(255, 63, 69, 0.8), rgba(255, 63, 69, 0));
 }
 .home__carousel--third {
   background-image: url(../img/home/sell-more/Sell_More_3.jpg);
@@ -14256,12 +14260,12 @@ p {
   }
 }
 .home__carousel--third .home__carousel__gradient {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNWMxOSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmY1YzE5IiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmNWMxOSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNGIwMSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmY0YjAxIiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmNGIwMSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ff5c19), color-stop(50%, rgba(255, 92, 25, 0.8)), color-stop(100%, rgba(255, 92, 25, 0)));
-  background-image: -moz-linear-gradient(left, #ff5c19, rgba(255, 92, 25, 0.8), rgba(255, 92, 25, 0));
-  background-image: -webkit-linear-gradient(left, #ff5c19, rgba(255, 92, 25, 0.8), rgba(255, 92, 25, 0));
-  background-image: linear-gradient(to right, #ff5c19, rgba(255, 92, 25, 0.8), rgba(255, 92, 25, 0));
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ff4b01), color-stop(50%, rgba(255, 75, 1, 0.8)), color-stop(100%, rgba(255, 75, 1, 0)));
+  background-image: -moz-linear-gradient(left, #ff4b01, rgba(255, 75, 1, 0.8), rgba(255, 75, 1, 0));
+  background-image: -webkit-linear-gradient(left, #ff4b01, rgba(255, 75, 1, 0.8), rgba(255, 75, 1, 0));
+  background-image: linear-gradient(to right, #ff4b01, rgba(255, 75, 1, 0.8), rgba(255, 75, 1, 0));
 }
 .home__carousel__section {
   height: 100vh;
