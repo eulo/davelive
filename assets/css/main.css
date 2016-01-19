@@ -15261,7 +15261,15 @@ p, body {
 p, li {
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.7em;
+  line-height: 1.4em;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -15291,7 +15299,7 @@ p, li {
 .mobile-menu-toggle {
   display: none;
   font-size: 2em;
-  line-height: 48px;
+  line-height: 60px;
 }
 @media (max-width: 768px) {
   .mobile-menu-toggle {
@@ -15369,7 +15377,7 @@ p, li {
 }
 @media (max-width: 768px) {
   .header__nav {
-    height: 48px;
+    height: 60px;
   }
 }
 .header__nav .brand-logo {
@@ -15386,7 +15394,7 @@ p, li {
 }
 @media (max-width: 768px) {
   .header__nav .brand-logo {
-    height: 48px;
+    height: 60px;
     background-position: left center;
     margin: 0;
     background-size: 80%;
@@ -15439,7 +15447,7 @@ p, li {
 }
 @media (max-width: 768px) {
   .home__header .scroll-down-info {
-    bottom: 70px;
+    bottom: 75px;
   }
 }
 .home__header .scroll-down-info p {
@@ -15489,7 +15497,7 @@ p, li {
 }
 @media (max-width: 768px) {
   .home__header__nav {
-    height: 48px;
+    height: 60px;
   }
 }
 .home__header__nav .brand-logo {
@@ -15506,7 +15514,7 @@ p, li {
 }
 @media (max-width: 768px) {
   .home__header__nav .brand-logo {
-    height: 48px;
+    height: 60px;
     background-position: left center;
     margin: 0;
     background-size: 80%;
@@ -15628,6 +15636,8 @@ p, li {
 @media (max-width: 768px) {
   .home__section--first {
     padding: 40px 0 20px;
+    background-image: none !important;
+    border-bottom: 1px solid #ccc;
   }
 }
 .home__section--first .home__section__gradient {
@@ -15643,6 +15653,11 @@ p, li {
   font-size: 41px;
   margin-bottom: 30px;
   margin-top: 0;
+}
+@media (max-width: 768px) {
+  .home__section--first h2 {
+    font-size: 34px;
+  }
 }
 .home__section--first ul {
   padding-left: 20px;
@@ -15663,6 +15678,12 @@ p, li {
   font-size: 41px;
   margin-bottom: 30px;
 }
+@media (max-width: 768px) {
+  .home__section--second h2 {
+    text-align: center;
+    font-size: 34px;
+  }
+}
 .home__section--second h5 {
   color: #db2522;
   font-size: 21px;
@@ -15682,11 +15703,6 @@ p, li {
   color: #db2522;
   font-size: 19px;
 }
-@media (max-width: 768px) {
-  .home__section--second p.red-text {
-    text-align: left;
-  }
-}
 .home__section--second .icon {
   width: 100%;
   height: 60px;
@@ -15699,7 +15715,7 @@ p, li {
 }
 @media (max-width: 768px) {
   .home__section--second .icon {
-    margin: 4em auto 0;
+    margin: 3em auto 0;
     background-position: center;
   }
 }
@@ -15764,7 +15780,8 @@ p, li {
 @media (max-width: 768px) {
   .home__section__display {
     width: 90vw;
-    margin: -30px auto 0px;
+    margin: -5px auto 0px;
+    bottom: -5vh;
   }
 }
 .home__section__display img {
@@ -15837,7 +15854,7 @@ p, li {
 }
 @media (max-width: 768px) {
   .home__carousel--first {
-    background-position: 66% 50%;
+    background-position: 66% 50% !important;
   }
 }
 .home__carousel--first .home__carousel__gradient {
@@ -15855,7 +15872,7 @@ p, li {
 @media (max-width: 768px) {
   .home__carousel--second {
     transform: none;
-    background-position: 66% 50%;
+    background-position: 66% 50% !important;
   }
 }
 .home__carousel--second .home__carousel__gradient {
@@ -16097,11 +16114,6 @@ p, li {
   bottom: 0;
   width: 100%;
 }
-@media (max-width: 768px) {
-  .page__cutout {
-    display: none;
-  }
-}
 .page__header {
   background-size: cover;
   background-repeat: no-repeat;
@@ -16136,6 +16148,8 @@ p, li {
   .page__header__navigation {
     width: 100%;
     max-width: 552px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 .page__header__navigation .icon {
@@ -16150,9 +16164,9 @@ p, li {
 }
 @media (max-width: 768px) {
   .page__header__navigation .icon {
-    width: 30%;
-    margin: 1.4%;
-    background-size: contain;
+    width: 33%;
+    background-size: 80%;
+    margin: 0;
   }
 }
 .page__header__navigation .icon--retailers {
@@ -16196,12 +16210,6 @@ p, li {
 }
 .page__section h5 {
   font-size: 19px;
-}
-.page__section p {
-  font-size: 18px;
-}
-.page__section li {
-  font-size: 18px;
 }
 .page__section ul {
   padding-left: 20px;
@@ -16337,7 +16345,7 @@ p, li {
 }
 @media (max-width: 768px) {
   .footer {
-    padding: 60px 0;
+    padding: 60px 0 90px;
   }
 }
 .footer__gradient {
@@ -16360,6 +16368,7 @@ p, li {
   list-style: none;
   line-height: 1.5em;
   padding: 15px 0;
+  margin-bottom: 0;
 }
 @media (max-width: 768px) {
   .footer__container ul li {

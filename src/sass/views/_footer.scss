@@ -10,7 +10,7 @@
   }
 
   @include mq(xs) {
-    padding: 60px 0;
+    padding: 60px 0 90px;
   }
 
   &__gradient {
@@ -37,6 +37,7 @@
         list-style: none; 
         line-height: 1.5em;
         padding: 15px 0;
+        margin-bottom: 0; 
 
         @include mq(xs) {
           line-height: 1.5em;

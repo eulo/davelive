@@ -19,7 +19,7 @@
       cursor: pointer;
 
       @include mq(xs) {
-        bottom: 70px;
+        bottom: 75px;
       }
 
       p {
@@ -71,7 +71,7 @@
       z-index: 2;
 
       @include mq(xs) {
-        height: 48px;
+        height: 60px;
       }
 
       .brand-logo {
@@ -87,7 +87,7 @@
         margin-top: 82px;
 
         @include mq(xs) {
-          height: 48px;
+          height: 60px;
           background-position: left center;
           margin: 0;
           background-size: 80%;
@@ -216,6 +216,8 @@
 
       @include mq(xs) {
         padding: 40px 0 20px;
+        background-image: none !important;
+        border-bottom: 1px solid #ccc;
       }
 
       .home__section__gradient {
@@ -231,6 +233,10 @@
         font-size: 41px;
         margin-bottom: 30px;
         margin-top: 0;
+
+        @include mq(xs) {
+          font-size: 34px;
+        }
       }
       ul {
         padding-left: 20px;
@@ -259,6 +265,10 @@
         margin-top: 0;
         font-size: 41px;
         margin-bottom: 30px;
+        @include mq(xs) {
+          text-align: center;
+          font-size: 34px;
+        }
       }
       h5 {
         color: $titleRed;
@@ -277,10 +287,6 @@
         &.red-text {
           color: $titleRed;
           font-size: 19px;
-
-          @include mq(xs) {
-            text-align: left;
-          }
         }
       }
 
@@ -296,7 +302,7 @@
         margin-bottom: 1em;
 
         @include mq(xs) {
-          margin: 4em auto 0;
+          margin: 3em auto 0;
           background-position: center;
         }
 
@@ -363,7 +369,8 @@
 
       @include mq(xs) {
         width: 90vw;
-        margin: -30px auto 0px;
+        margin: -5px auto 0px;
+        bottom: -5vh;
       }
 
       img {
@@ -439,7 +446,7 @@
       background-image: url(../img/home/sell-more/Sell_More_1.jpg);
 
       @include mq(xs) {
-        background-position: 66% 50%;
+        background-position: 66% 50% !important;
       }
 
       .home__carousel__gradient {
@@ -454,7 +461,7 @@
       @include mq(xs) {
         transform: none;
 
-        background-position: 66% 50%;
+        background-position: 66% 50% !important;
       }
 
       .home__carousel__gradient {

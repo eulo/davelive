@@ -8,7 +8,7 @@
     height: 135px;
 
     @include mq(xs) {
-      height: 48px;
+      height: 60px;
     }
 
     .brand-logo {
@@ -24,7 +24,7 @@
       margin-top: 82px;
 
       @include mq(xs) {
-        height: 48px;
+        height: 60px;
         background-position: left center;
         margin: 0;
         background-size: 80%;

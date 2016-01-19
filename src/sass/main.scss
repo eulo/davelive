@@ -43,7 +43,13 @@ p, body {
 p, li {
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.7em;
+  line-height: 1.4em;
+}
+p {
+  margin-bottom: 20px;
+}
+li {
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -83,7 +89,7 @@ p, li {
   @extend .fa-bars;
 
   font-size: 2em;
-  line-height: 48px;
+  line-height: 60px;
   
 }
 
