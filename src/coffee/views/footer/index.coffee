@@ -8,6 +8,7 @@ Footer = Backbone.View.extend
   additionalEvents: {}
   originalEvents:
     'submit form': 'formSend'
+    'click .scroll-to-top': 'scrollTop'
 
   events: ->
     return _.extend {}, @.originalEvents, @.additionalEvents
@@ -15,6 +16,14 @@ Footer = Backbone.View.extend
   initialize: ->
     @.render()
     $('.parallax-window').parallax()
+
+    $(window).scroll ->
+     if ($(window).scrollTop() + $(window).height() > $(document).height() - 100)
+       $('.scroll-to-top').addClass 'active'
+     else
+       $('.scroll-to-top').removeClass 'active'
+
+
 
   formSend: (event)->
     $this = $(event.currentTarget)
@@ -24,6 +33,13 @@ Footer = Backbone.View.extend
     # Do something with data
 
     $this.replaceWith "<h4 class='form-complete-message'>Thank you.<br> We'll be in touch soon.</h4>"
+
+  scrollTop: (event)->
+    $(event.currentTarget).removeClass 'active'
+
+    $('html, body').animate
+      scrollTop: 0
+    , 800
 
   render: ->
     @.$el.html @.template

@@ -9,6 +9,24 @@
     background-position: center;
     overflow: hidden;
 
+    .scroll-down-info {
+      color: white;
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+
+      p {
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
+      }
+      i {
+        font-size: 28px; 
+      }
+    }
+
     &__container {
       height: 100%;
       padding-bottom: 60px;
@@ -80,7 +98,7 @@
           @include exo-font();
           display: inline-block;
           list-style: none;
-          padding-top: 80px;
+          padding-top: 75px;
           margin-left: 50px;
 
           a {
@@ -88,9 +106,11 @@
             font-size: 19px;
             font-weight: 300;
 
-            &:hover {
+            &:hover, &.active {
               font-weight: 600;
               text-decoration: none;
+              border-bottom: 3px solid white;
+              padding-bottom: 11px;
             }
           }
         }
@@ -131,6 +151,7 @@
           }
         }
       }
+      
       .play-button {
         display: none;
 
@@ -202,15 +223,9 @@
         margin-bottom: 30px;
         margin-top: 0;
       }
-      p {
-        font-size: 19px;
-      }
       ul {
         padding-left: 20px;
 
-        li {
-          font-size: 19px;
-        }
       }
     }
 
@@ -250,9 +265,9 @@
         @include mq(xs) {
           text-align: center;
         }
-        font-size: 19px;
         &.red-text {
           color: $titleRed;
+          font-size: 19px;
 
           @include mq(xs) {
             text-align: left;
@@ -558,7 +573,7 @@
         color: $titleRed;
         margin: 0;
         line-height: 170px; 
-
+        font-size: 41px;
       }
 
       
@@ -566,6 +581,7 @@
         height: 85px;
         h2 {
           line-height: 85px;
+          font-size: 30px;
         }
       }
     }

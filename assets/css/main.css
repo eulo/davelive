@@ -15216,7 +15216,7 @@ p, body {
 
 p, li {
   font-weight: 300;
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.7em;
 }
 
@@ -15352,7 +15352,7 @@ p, li {
   font-style: italic;
   display: inline-block;
   list-style: none;
-  padding-top: 80px;
+  padding-top: 75px;
   margin-left: 50px;
 }
 .header__nav ul li a {
@@ -15363,6 +15363,8 @@ p, li {
 .header__nav ul li a:hover, .header__nav ul li a.active {
   font-weight: 600;
   text-decoration: none;
+  border-bottom: 3px solid white;
+  padding-bottom: 11px;
 }
 
 .home__header {
@@ -15374,6 +15376,22 @@ p, li {
   background-size: cover;
   background-position: center;
   overflow: hidden;
+}
+.home__header .scroll-down-info {
+  color: white;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.home__header .scroll-down-info p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+.home__header .scroll-down-info i {
+  font-size: 28px;
 }
 .home__header__container {
   height: 100%;
@@ -15447,7 +15465,7 @@ p, li {
   font-style: italic;
   display: inline-block;
   list-style: none;
-  padding-top: 80px;
+  padding-top: 75px;
   margin-left: 50px;
 }
 .home__header__nav ul li a {
@@ -15455,9 +15473,11 @@ p, li {
   font-size: 19px;
   font-weight: 300;
 }
-.home__header__nav ul li a:hover {
+.home__header__nav ul li a:hover, .home__header__nav ul li a.active {
   font-weight: 600;
   text-decoration: none;
+  border-bottom: 3px solid white;
+  padding-bottom: 11px;
 }
 .home__header__intro {
   position: relative;
@@ -15563,14 +15583,8 @@ p, li {
   margin-bottom: 30px;
   margin-top: 0;
 }
-.home__section--first p {
-  font-size: 19px;
-}
 .home__section--first ul {
   padding-left: 20px;
-}
-.home__section--first ul li {
-  font-size: 19px;
 }
 .home__section--second {
   background-color: #f5f5f5;
@@ -15598,9 +15612,6 @@ p, li {
     text-align: center;
   }
 }
-.home__section--second p {
-  font-size: 19px;
-}
 @media (max-width: 768px) {
   .home__section--second p {
     text-align: center;
@@ -15608,6 +15619,7 @@ p, li {
 }
 .home__section--second p.red-text {
   color: #db2522;
+  font-size: 19px;
 }
 @media (max-width: 768px) {
   .home__section--second p.red-text {
@@ -15917,6 +15929,7 @@ p, li {
   color: #db2522;
   margin: 0;
   line-height: 170px;
+  font-size: 41px;
 }
 @media (max-width: 768px) {
   .home__links__banner {
@@ -15924,6 +15937,7 @@ p, li {
   }
   .home__links__banner h2 {
     line-height: 85px;
+    font-size: 30px;
   }
 }
 .home__links__gradient {
@@ -16297,6 +16311,9 @@ p, li {
 .footer__container ul li a {
   color: white;
 }
+.footer__container p, .footer__container li {
+  font-size: 19px;
+}
 .footer__container i.icon {
   width: 1.5em;
   height: 1.5em;
@@ -16344,4 +16361,31 @@ p, li {
   background: white;
   border-color: white;
   color: #db2522;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: -140px;
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  background-color: rgba(87, 87, 87, 0.8);
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.scroll-to-top.active {
+  bottom: -70px;
+}
+.scroll-to-top p {
+  color: white;
+  line-height: 23px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.scroll-to-top p i {
+  font-size: 31px;
+  margin-top: 6px;
 }

@@ -52,6 +52,7 @@
     }
 
     p, li {
+      font-size: 19px;
     }
 
     i.icon {
@@ -110,4 +111,35 @@
       }
     } 
   }
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: -140px;
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  background-color: rgba(87,87,87,0.8);
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in-out; 
+  cursor: pointer;
+
+  &.active {
+    bottom: -70px;
+  }
+
+  p {
+    color: white;
+    line-height: 23px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    i {
+      font-size: 31px;
+      margin-top: 6px; 
+    }
+  }
+
 }
