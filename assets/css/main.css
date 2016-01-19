@@ -15309,8 +15309,8 @@ li {
 
 @media (max-width: 768px) {
   .base {
-    background: white;
     box-shadow: inset 20vw 0 35px rgba(33, 33, 33, 0.6);
+    background-color: #333;
   }
 }
 
@@ -15344,6 +15344,10 @@ li {
   height: 100vh;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../img/industry-solutions/Industry_Solutions.jpg);
 }
 @media (max-width: 768px) {
   .menu__container {
@@ -15353,14 +15357,17 @@ li {
 .menu__container.active {
   transform: translateX(0);
 }
+.menu__wrap {
+  padding: 0 20px;
+}
 .menu__list a {
   display: block;
   color: white;
   font-size: 1.2em;
-  border-bottom: 1px solid #ddd;
-  padding: 0.8em;
+  border-bottom: 1px solid white;
+  padding: 0.8em 0;
   text-decoration: none;
-  color: #c94e50;
+  color: white;
 }
 .menu__list a:hover, .menu__list a.active {
   text-decoration: none;
@@ -16380,6 +16387,14 @@ li {
 .footer__container ul li a {
   color: white;
 }
+.footer__container ul li a br {
+  display: none;
+}
+@media (max-width: 768px) {
+  .footer__container ul li a br {
+    display: block;
+  }
+}
 .footer__container p, .footer__container li {
   font-size: 19px;
 }
@@ -16391,6 +16406,11 @@ li {
   background-size: contain;
   background-position: center;
   margin-right: 1em;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .footer__container i.icon--email {
   background-image: url(../img/home/contact/Email.png);

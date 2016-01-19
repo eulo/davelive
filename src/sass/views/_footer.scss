@@ -39,6 +39,7 @@
         padding: 15px 0;
         margin-bottom: 0; 
 
+
         @include mq(xs) {
           line-height: 1.5em;
           font-size: 1em;
@@ -48,6 +49,12 @@
 
         a {
           color: white;
+          br {
+            display: none;
+            @include mq(xs) {
+              display: block;
+            }
+          }
         }
       }
     }
@@ -64,6 +71,7 @@
       background-size: contain;
       background-position: center;
       margin-right: 1em;
+      @include vertical-align();
       
       &--email {
         background-image:url(../img/home/contact/Email.png);

@@ -95,8 +95,9 @@ li {
 
 .base {
   @include mq(xs) {
-    background: white;
     box-shadow: inset 20vw 0 35px rgba(33, 33, 33, 0.6);
+    background-color: #333;
+    
   }
 }
 .base__container {
