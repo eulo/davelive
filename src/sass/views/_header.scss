@@ -47,7 +47,7 @@
           font-size: 19px;
           font-weight: 300;
 
-          &:hover {
+          &:hover, &.active {
             font-weight: 600;
             text-decoration: none;
           }

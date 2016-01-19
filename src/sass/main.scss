@@ -67,6 +67,10 @@ p, li {
     color: $colBody;
     border: 2px solid white;
   }
+
+  &:active {
+    outline: none;
+  }
 }
 
 .mobile-menu-toggle {

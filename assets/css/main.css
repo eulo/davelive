@@ -15240,6 +15240,9 @@ p, li {
   color: #4a4a4a;
   border: 2px solid white;
 }
+.btn:active {
+  outline: none;
+}
 
 .mobile-menu-toggle {
   display: none;
@@ -15354,7 +15357,7 @@ p, li {
   font-size: 19px;
   font-weight: 300;
 }
-.header__nav ul li a:hover {
+.header__nav ul li a:hover, .header__nav ul li a.active {
   font-weight: 600;
   text-decoration: none;
 }
@@ -15935,6 +15938,9 @@ p, li {
   margin-bottom: 45px;
   line-height: 45px;
 }
+.home__links .row .col-sm-4 .btn {
+  padding: 0.5em 0;
+}
 .home__links .row .col-sm-4:hover {
   background-color: rgba(66, 36, 96, 0.7);
 }
@@ -16077,21 +16083,19 @@ p, li {
 .page__about h2 {
   color: #db2522;
   font-size: 45px;
+  margin-bottom: 30px;
   margin-top: 0;
 }
 .page__about h5 {
   font-size: 30px;
   line-height: 1.3em;
-  margin-top: 30px;
+  margin-bottom: 50px;
 }
 .page__about p {
   font-size: 18px;
 }
 .page__about li {
   font-size: 18px;
-}
-.page__about__header {
-  margin-bottom: 4em;
 }
 .page__about__leftimage {
   width: 20%;
@@ -16100,6 +16104,7 @@ p, li {
   background-repeat: no-repeat;
   background: transparent;
   position: absolute;
+  background-position: left;
 }
 @media (max-width: 767px) {
   .page__about__leftimage {
@@ -16108,7 +16113,8 @@ p, li {
 }
 .page__about__rightcont {
   width: 70%;
-  padding: 5% 0 5% 25%;
+  padding: 5% 0 5% 0;
+  margin-left: 25%;
 }
 @media (max-width: 767px) {
   .page__about__rightcont {
@@ -16133,10 +16139,13 @@ p, li {
   }
 }
 .page__banner h3 {
-  margin: 0;
+  margin: 60px 0;
+  padding: 0 20px;
   color: white;
-  line-height: 180px;
+  line-height: 48px;
   text-align: center;
+  font-size: 30px;
+  font-weight: 400;
 }
 @media (max-width: 767px) {
   .page__banner h3 {
@@ -16169,6 +16178,7 @@ p, li {
 .footer__container h2 {
   margin-top: 0;
   font-size: 36px;
+  margin-bottom: 30px;
 }
 .footer__container ul {
   padding: 0;
@@ -16205,8 +16215,11 @@ p, li {
 }
 .footer__container form input, .footer__container form textarea {
   border-radius: 0;
-  padding: 8px 35px;
+  padding: 8px 18px;
   font-size: 18px;
+}
+.footer__container form textarea {
+  min-height: 160px;
 }
 .footer__container form input {
   height: 50px;
@@ -16214,6 +16227,7 @@ p, li {
 .footer__container form button {
   width: 100%;
   margin-top: 40px;
+  font-size: 20px;
   background: #db2522;
   border-color: #db2522;
 }

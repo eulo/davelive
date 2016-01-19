@@ -14,6 +14,7 @@ Header = Backbone.View.extend
 
   initialize: ->
     @.render()
+    @.$el.find("a[href=#{window.location.pathname.slice(1)}]").addClass 'active'
 
   render: ->
     @.$el.html @.template
