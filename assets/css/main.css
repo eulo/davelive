@@ -15240,7 +15240,7 @@ p, li {
   color: #4a4a4a;
   border: 2px solid white;
 }
-.btn:active {
+.btn:active, .btn:focus {
   outline: none;
 }
 

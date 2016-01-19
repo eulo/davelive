@@ -68,7 +68,7 @@ p, li {
     border: 2px solid white;
   }
 
-  &:active {
+  &:active, &:focus {
     outline: none;
   }
 }
