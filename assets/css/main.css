@@ -16055,8 +16055,9 @@ p, li {
 }
 .page__section h2 {
   color: #db2522;
-  font-size: 36px;
+  font-size: 45px;
   margin-top: 0;
+  margin-bottom: 30px;
 }
 .page__section h5 {
   font-size: 19px;
@@ -16067,9 +16068,12 @@ p, li {
 .page__section li {
   font-size: 18px;
 }
+.page__section ul {
+  padding-left: 20px;
+}
 .page__section .icon {
-  max-width: 350px;
-  height: 350px;
+  max-width: 210px;
+  height: 210px;
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: 40px;

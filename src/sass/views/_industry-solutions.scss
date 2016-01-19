@@ -110,8 +110,9 @@
 
   h2 {
     color: $titleRed;
-    font-size: 36px;
+    font-size: 45px;
     margin-top: 0;
+    margin-bottom: 30px; 
   }
 
   h5 {
@@ -124,10 +125,13 @@
   li {
     font-size: 18px;
   }
+  ul {
+    padding-left: 20px;
+  }
 
   .icon {
-    max-width: 350px;
-    height: 350px;
+    max-width: 210px;
+    height: 210px;
     background-size: contain;
     background-repeat: no-repeat;
     margin-top: 40px;
