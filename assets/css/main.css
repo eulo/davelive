@@ -15565,6 +15565,9 @@ p, li {
 @media (max-width: 768px) {
   .home__header__intro p {
     font-size: 18px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .home__header__intro p br {
     display: none;

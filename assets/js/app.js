@@ -48807,6 +48807,8 @@ Home = Backbone.View.extend({
     $('.parallax-window').parallax();
     if ($(window).width() >= 769) {
       return this.initAnimation();
+    } else {
+      return $('.home__header').height($(window).height());
     }
   },
   initAnimation: function() {

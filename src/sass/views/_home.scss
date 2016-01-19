@@ -152,6 +152,9 @@
 
         @include mq(xs) {
           font-size: 18px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
           br {
             display: none;
           }

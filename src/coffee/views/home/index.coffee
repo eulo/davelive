@@ -24,6 +24,9 @@ Home = Backbone.View.extend
     if $(window).width() >= 769
       @.initAnimation()
 
+    else
+      $('.home__header').height $(window).height()
+
   initAnimation: ->
 
     ## Header video
