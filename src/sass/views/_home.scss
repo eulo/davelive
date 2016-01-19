@@ -105,7 +105,7 @@
         display: block;
       }
       h1 {
-        font-size: 45px;
+        font-size: 41px;
 
         br {
           display: none;
@@ -120,7 +120,7 @@
         }
       }
       p {
-        font-size: 24px;
+        font-size: 21px;
         margin-top: 40px;
         line-height: 1.7em;
 
@@ -198,7 +198,7 @@
 
       h2 {
         color: $titleRed;
-        font-size: 45px;
+        font-size: 41px;
         margin-bottom: 30px;
         margin-top: 0;
       }
@@ -233,12 +233,12 @@
       h2 {
         color: $titleRed;
         margin-top: 0;
-        font-size: 45px;
+        font-size: 41px;
         margin-bottom: 30px;
       }
       h5 {
         color: $titleRed;
-        font-size: 24px;
+        font-size: 21px;
         margin-bottom: 20px;
 
         @include mq(xs) {
@@ -476,7 +476,7 @@
         color: white;
       }
       h3 {
-        font-size: 45px;
+        font-size: 41px;
         margin-top: 0;
         margin-bottom: 80px;
 
@@ -487,7 +487,7 @@
       }
 
       h4 {
-        font-size: 35px;
+        font-size: 32px;
         @extend .clearfix;
         position: relative;
         margin-bottom: 20px;
@@ -596,6 +596,10 @@
         cursor: pointer;
         background-color: rgba(76, 76, 76, 0.7);
         transition: all 0.2s linear;
+
+        @media (max-width: 1024px) {
+          padding: 35px 0 45px;
+        }
         
         @include mq(xs) {
           padding: 45px 0; 
@@ -635,8 +639,8 @@
         &:after {
           //border-color: rgba(136, 183, 213, 0);
           border-top-color: white;
-          border-width: 30px;
-          margin-left: -30px;
+          border-width: 21px;
+          margin-left: -21px;
         }
         
 

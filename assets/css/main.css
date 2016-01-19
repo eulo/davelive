@@ -15472,7 +15472,7 @@ p, li {
   display: block;
 }
 .home__header__intro h1 {
-  font-size: 45px;
+  font-size: 41px;
 }
 .home__header__intro h1 br {
   display: none;
@@ -15487,7 +15487,7 @@ p, li {
   }
 }
 .home__header__intro p {
-  font-size: 24px;
+  font-size: 21px;
   margin-top: 40px;
   line-height: 1.7em;
 }
@@ -15559,7 +15559,7 @@ p, li {
 }
 .home__section--first h2 {
   color: #db2522;
-  font-size: 45px;
+  font-size: 41px;
   margin-bottom: 30px;
   margin-top: 0;
 }
@@ -15585,12 +15585,12 @@ p, li {
 .home__section--second h2 {
   color: #db2522;
   margin-top: 0;
-  font-size: 45px;
+  font-size: 41px;
   margin-bottom: 30px;
 }
 .home__section--second h5 {
   color: #db2522;
-  font-size: 24px;
+  font-size: 21px;
   margin-bottom: 20px;
 }
 @media (max-width: 768px) {
@@ -15837,7 +15837,7 @@ p, li {
   color: white;
 }
 .home__carousel__section h3 {
-  font-size: 45px;
+  font-size: 41px;
   margin-top: 0;
   margin-bottom: 80px;
 }
@@ -15848,7 +15848,7 @@ p, li {
   }
 }
 .home__carousel__section h4 {
-  font-size: 35px;
+  font-size: 32px;
   position: relative;
   margin-bottom: 20px;
 }
@@ -15950,6 +15950,11 @@ p, li {
   background-color: rgba(76, 76, 76, 0.7);
   transition: all 0.2s linear;
 }
+@media (max-width: 1024px) {
+  .home__links .row .col-sm-4 {
+    padding: 35px 0 45px;
+  }
+}
 @media (max-width: 768px) {
   .home__links .row .col-sm-4 {
     padding: 45px 0;
@@ -15986,8 +15991,8 @@ p, li {
 }
 .home__links .row .col-sm-4:after {
   border-top-color: white;
-  border-width: 30px;
-  margin-left: -30px;
+  border-width: 21px;
+  margin-left: -21px;
 }
 .home__links .row .col-sm-4 h3 {
   text-align: center;
