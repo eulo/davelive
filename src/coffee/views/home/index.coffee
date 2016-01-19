@@ -2,6 +2,7 @@ Base = require '../base'
 ScrollMagic = require 'scrollmagic'
 TweenMax = require 'gsap'
 require 'animation.gsap'
+Videojs = require 'video.js'
 
 Home = Backbone.View.extend
   el: '.base__content'
@@ -23,6 +24,23 @@ Home = Backbone.View.extend
       @.initAnimation()
 
   initAnimation: ->
+
+    ## Header video
+
+    videoHeight = $(window).width() / (1920/1080)
+    $('#header-video').height videoHeight
+    $(window).resize ->
+      videoHeight = $(window).width() / (1920/1080)
+      $('#header-video').height videoHeight 
+
+    replay_video = ->
+      @.headerVid.play()
+
+    el = document.getElementById('header-video')
+    @.headerVid = Videojs el, { loop: true }
+    @.headerVid.ready ->
+      @.on 'ended', replay_video
+      @.play()
 
     ## Computer
 
@@ -77,6 +95,10 @@ Home = Backbone.View.extend
       @.Carousel.destroy()
     if @.Computer
       @.Computer.destroy()
+
+    $('.parallax-window').each ->
+      try $.fn.parallax.Constructor.destroy @
+      catch e then log e
 
   render: ->
     @.$el.html @.template

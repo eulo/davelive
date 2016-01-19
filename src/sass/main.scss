@@ -5,7 +5,7 @@
 @import 'fonts';
 @import 'media-query';
 @import 'lib/animate';
-//@import 'lib/videojs';
+@import 'lib/videojs';
 
 
 @mixin vertical-align($position: relative) {
@@ -40,7 +40,7 @@ p, body {
   font-family: 'Lato', sans-serif;
   //-webkit-font-smoothing: antialiased;
 }
-p {
+p, li {
   font-weight: 300;
   font-size: 19px;
   line-height: 1.7em;

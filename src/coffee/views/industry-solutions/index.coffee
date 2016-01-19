@@ -43,7 +43,9 @@ Solutions = Backbone.View.extend
     window.location.hash = section
 
   destroy: ->
-    # Nothing
+    $('.parallax-window').each ->
+      try $.fn.parallax.Constructor.destroy @
+      catch e then log e
 
   render: ->
     @.$el.html @.template

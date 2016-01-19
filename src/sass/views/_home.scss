@@ -3,14 +3,32 @@
     height: 100vh;  
     position: relative;
     background-color: $colRed;
-    background-image: url(../img/home/hero/Hero.jpg);
+    background-image: url(../video/landing_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 
+    
+
     &__container {
       height: 100%;
       padding-bottom: 60px;
+
+      .video-js {
+        background-color: $colRed;
+        background-image: url(../video/landing_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      #header-video {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
 
       @include mq(xs) {
         padding-bottom: 120px;
@@ -23,6 +41,7 @@
       top: 0;
       width: 100%;
       height: 130px;
+      z-index: 2;
 
       @include mq(xs) {
         height: 48px;
@@ -33,13 +52,12 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
-        width: 20rem;
-        height: 110px; 
+        width: 270px;
+        height: 24px; 
         float: left;
-        //margin-left: 4.800000000000001vmin;
-        background-position: left 90%;
         display: block;
         text-indent: -9999px;
+        margin-top: 82px;
 
         @include mq(xs) {
           height: 48px;
@@ -58,14 +76,15 @@
           display: inline-block;
           list-style: none;
           padding-top: 80px;
-          margin-left: 25px;
+          margin-left: 50px;
 
           a {
             color: white;
             font-size: 19px;
+            font-weight: 300;
 
             &:hover {
-              font-weight: bold;
+              font-weight: 600;
               text-decoration: none;
             }
           }
@@ -118,15 +137,15 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 120px;
-      //background-color: #ff3f40;
+      height: 80px;
+      background-color: #F72727;
       //box-shadow: 0 0 5px rgba(0,0,0,0.6);
-      background-color: rgba(255,0,0,0.75);
+      //background-color: rgba(255,0,0,0.75);
       padding: 0 20px;
 
       .btn {
         width: 15em;
-        font-size: 24px;
+        font-size: 20px;
         @include vertical-align();
         padding: 0.35em 0 0.45em;;
         max-width: 100%;
@@ -227,10 +246,11 @@
 
       .icon {
         width: 100%;
-        height: 4.2em;
+        height: 60px;
         
         background-repeat: no-repeat;
         background-size: contain;
+        background-position: left bottom;
         display: block;
         margin-top: 4em;
         margin-bottom: 1em;
@@ -242,15 +262,23 @@
 
         &--physical {
           background-image: url(../img/home/learn/Physical.png);  
+          // 107 x 58
+          width: 107px;
         }
         &--media {
           background-image: url(../img/home/learn/Media.png);  
+          // 105 x 60
+          width: 105px;
         }
         &--screen {
           background-image: url(../img/home/learn/Screen.png);  
+          // 77 x 46
+          width: 77px;
         }
         &--lead {
           background-image: url(../img/home/learn/Lead.png);  
+          // 66 x 56
+          width: 66px;
         }
       }
     }
@@ -311,12 +339,12 @@
       @include background-image(linear-gradient(to right, #3c1822, #cc1740, #b2466a));
 
       h3 {
-        margin: 90px 0;
+        margin: 60px 0;
         padding: 0 20px;
         color: white;
-        line-height: 54px;
+        line-height: 48px;
         text-align: center;
-        font-size: 36px;
+        font-size: 30px;
         font-weight: 400;
 
         @include mq(xs) {
@@ -344,6 +372,18 @@
       position: absolute;
       z-index: 0;
       top: 0; 
+    }
+
+    &__pager {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+
+      i {
+        margin: 0 6px;
+      }
     }
 
     &--first {
@@ -405,12 +445,14 @@
       h3 {
         font-size: 45px;
         margin-top: 0;
-        margin-bottom: 50px;
+        margin-bottom: 80px;
 
         @include mq(xs) {
           font-size: 30px;
+          margin-bottom: 20px;
         }
       }
+
       h4 {
         font-size: 35px;
         @extend .clearfix;
@@ -461,6 +503,10 @@
         @include mq(xs) {
           font-size: 17px;
         }
+      }
+
+      ul {
+        padding-left: 20px;
       }
 
       img {

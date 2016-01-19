@@ -16,13 +16,12 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center center;
-      width: 20rem;
-      height: 135px; 
+      width: 270px;
+      height: 24px;
       float: left;
-      //margin-left: 4.800000000000001vmin;
-      background-position: left 67%;
       display: block;
       text-indent: -9999px;
+      margin-top: 82px;
 
       @include mq(xs) {
         height: 48px;
@@ -41,14 +40,15 @@
         display: inline-block;
         list-style: none;
         padding-top: 80px;
-        margin-left: 25px;
+        margin-left: 50px;
 
         a {
           color: white;
           font-size: 19px;
+          font-weight: 300;
 
           &:hover {
-            font-weight: bold;
+            font-weight: 600;
             text-decoration: none;
           }
         }
