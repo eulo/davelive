@@ -15319,6 +15319,13 @@ p, li {
   }
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 .menu__container {
   display: none;
   position: fixed;
@@ -15910,7 +15917,6 @@ p, li {
 @media (max-width: 768px) {
   .home__carousel__section h3 {
     font-size: 30px;
-    margin-bottom: 20px;
   }
 }
 .home__carousel__section h4 {
