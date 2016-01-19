@@ -16299,6 +16299,16 @@ p, li {
 .footer__container i.icon--location {
   background-image: url(../img/home/contact/Location.png);
 }
+.footer__container .form-complete-message {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 160px;
+}
+@media (max-width: 768px) {
+  .footer__container .form-complete-message {
+    margin-top: 40px;
+  }
+}
 .footer__container form input, .footer__container form textarea {
   border-radius: 0;
   padding: 8px 18px;

@@ -67,6 +67,16 @@
       }
     }
 
+    .form-complete-message {
+      text-align: center;
+      font-size: 28px;
+      margin-top: 160px;
+
+      @include mq(xs) {
+        margin-top: 40px;
+      }
+    }
+
     form {
 
       input, textarea {
