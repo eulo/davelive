@@ -15336,6 +15336,8 @@ p, li {
   .header__nav .brand-logo {
     height: 48px;
     background-position: left center;
+    margin: 0;
+    background-size: 80%;
   }
 }
 @media (max-width: 767px) {
@@ -15391,6 +15393,11 @@ p, li {
   height: 100%;
 }
 @media (max-width: 767px) {
+  .home__header__container #header-video {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
   .home__header__container {
     padding-bottom: 120px;
   }
@@ -15424,6 +15431,8 @@ p, li {
   .home__header__nav .brand-logo {
     height: 48px;
     background-position: left center;
+    margin: 0;
+    background-size: 80%;
   }
 }
 @media (max-width: 767px) {
