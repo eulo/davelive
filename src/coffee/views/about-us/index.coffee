@@ -20,7 +20,7 @@ About = Backbone.View.extend
     $('.page__about__leftimage').parallax()
 
   destroy: ->
-    $('.parallax-window').each ->
+    @.$el.find('.parallax-window').each ->
       try $.fn.parallax.Constructor.destroy @
       catch e then log e
 

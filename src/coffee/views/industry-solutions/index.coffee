@@ -43,7 +43,7 @@ Solutions = Backbone.View.extend
     window.location.hash = section
 
   destroy: ->
-    $('.parallax-window').each ->
+    @.$el.find('.parallax-window').each ->
       try $.fn.parallax.Constructor.destroy @
       catch e then log e
 
