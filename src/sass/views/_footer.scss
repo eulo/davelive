@@ -73,12 +73,17 @@
       background-size: contain;
       background-position: center;
       margin-right: 1em;
+      float: left;
       
       &--email {
         background-image:url(../img/home/contact/Email.png);
       }
       &--location {
         background-image:url(../img/home/contact/Location.png);
+
+        @include mq(xs) {
+          margin-top: 11px;
+        }
       }
     }
 

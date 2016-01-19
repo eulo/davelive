@@ -257,7 +257,7 @@
       }
 
       @include mq(xs) {
-        padding: 40px 0 45px;
+        padding: 40px 0 20px;
       }
 
       h2 {
@@ -310,6 +310,7 @@
           background-image: url(../img/home/learn/Physical.png);  
           // 107 x 58
           width: 107px;
+
         }
         &--media {
           background-image: url(../img/home/learn/Media.png);  
@@ -320,6 +321,7 @@
           background-image: url(../img/home/learn/Screen.png);  
           // 77 x 46
           width: 77px;
+
         }
         &--lead {
           background-image: url(../img/home/learn/Lead.png);  

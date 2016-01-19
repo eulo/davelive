@@ -15684,7 +15684,7 @@ li {
 }
 @media (max-width: 768px) {
   .home__section--second {
-    padding: 40px 0 45px;
+    padding: 40px 0 20px;
   }
 }
 .home__section--second h2 {
@@ -16430,12 +16430,18 @@ li {
   background-size: contain;
   background-position: center;
   margin-right: 1em;
+  float: left;
 }
 .footer__container i.icon--email {
   background-image: url(../img/home/contact/Email.png);
 }
 .footer__container i.icon--location {
   background-image: url(../img/home/contact/Location.png);
+}
+@media (max-width: 768px) {
+  .footer__container i.icon--location {
+    margin-top: 11px;
+  }
 }
 .footer__container .form-complete-message {
   text-align: center;
