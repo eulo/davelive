@@ -32,8 +32,9 @@
       color: #c94e50;
 
 
-      &:hover {
+      &:hover, &.active {
         text-decoration: none;
+        font-weight: bold;
       }
     }
   }

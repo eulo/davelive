@@ -14,10 +14,16 @@ Menu = Backbone.View.extend
 
   initialize: ->
     @.render()
+    @.$el.find("a[href='#{window.location.pathname.slice(1)}']").addClass 'active'
 
-  closeMenu: ->
+  closeMenu: (event)->
+    $this = $(event.currentTarget)
+
+    $('.menu__list a').removeClass 'active'
     $('.menu__container').removeClass 'active'
     $('.base__container').removeClass 'menu-open'
+
+    $this.addClass 'active'
     return true
 
   render: ->

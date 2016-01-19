@@ -15257,8 +15257,8 @@ p, li {
 
 @media (max-width: 767px) {
   .base {
-    background: #373a47;
-    box-shadow: inset 20vw 0 35px rgba(33, 33, 33, 0.8);
+    background: white;
+    box-shadow: inset 20vw 0 35px rgba(33, 33, 33, 0.6);
   }
 }
 
@@ -15303,8 +15303,9 @@ p, li {
   text-decoration: none;
   color: #c94e50;
 }
-.menu__list a:hover {
+.menu__list a:hover, .menu__list a.active {
   text-decoration: none;
+  font-weight: bold;
 }
 
 .header {
@@ -15473,9 +15474,16 @@ p, li {
 .home__header__intro h1 {
   font-size: 45px;
 }
+.home__header__intro h1 br {
+  display: none;
+}
 @media (max-width: 767px) {
   .home__header__intro h1 {
     font-size: 32px;
+    line-height: 45px;
+  }
+  .home__header__intro h1 br {
+    display: block;
   }
 }
 .home__header__intro p {
@@ -15486,6 +15494,9 @@ p, li {
 @media (max-width: 767px) {
   .home__header__intro p {
     font-size: 18px;
+  }
+  .home__header__intro p br {
+    display: none;
   }
 }
 .home__header__intro .play-button {
@@ -15535,7 +15546,7 @@ p, li {
 }
 @media (max-width: 767px) {
   .home__section--first {
-    padding: 30px 0;
+    padding: 40px 0 20px;
   }
 }
 .home__section--first .home__section__gradient {
@@ -15568,7 +15579,7 @@ p, li {
 }
 @media (max-width: 767px) {
   .home__section--second {
-    padding: 40px 0 100px;
+    padding: 40px 0 45px;
   }
 }
 .home__section--second h2 {
@@ -15666,7 +15677,7 @@ p, li {
     left: auto;
     width: 100%;
     height: 50vh;
-    margin-top: 80px;
+    margin-top: 20px;
   }
 }
 .home__section__display {
@@ -15680,6 +15691,7 @@ p, li {
 @media (max-width: 767px) {
   .home__section__display {
     width: 90vw;
+    margin: -30px auto 0px;
   }
 }
 .home__section__display img {
@@ -15710,6 +15722,9 @@ p, li {
     line-height: 32px;
     font-size: 19px;
   }
+  .home__section__banner h3 br {
+    display: none;
+  }
 }
 .home__carousel {
   position: relative;
@@ -15739,8 +15754,18 @@ p, li {
 .home__carousel__pager i {
   margin: 0 6px;
 }
+@media (max-width: 767px) {
+  .home__carousel__pager {
+    display: none;
+  }
+}
 .home__carousel--first {
   background-image: url(../img/home/sell-more/Sell_More_1.jpg);
+}
+@media (max-width: 767px) {
+  .home__carousel--first {
+    background-position: 66% 50%;
+  }
 }
 .home__carousel--first .home__carousel__gradient {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYTU5MSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDBhNTkxIiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwYTU5MSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
@@ -15757,6 +15782,7 @@ p, li {
 @media (max-width: 767px) {
   .home__carousel--second {
     transform: none;
+    background-position: 66% 50%;
   }
 }
 .home__carousel--second .home__carousel__gradient {
@@ -15774,6 +15800,7 @@ p, li {
 @media (max-width: 767px) {
   .home__carousel--third {
     transform: none;
+    background-position: center;
   }
 }
 .home__carousel--third .home__carousel__gradient {
@@ -15789,6 +15816,7 @@ p, li {
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
   top: 0;
 }
@@ -15796,7 +15824,6 @@ p, li {
   .home__carousel__section {
     position: relative;
     top: auto;
-    background-position: center;
   }
 }
 .home__carousel__section .container {
@@ -15891,6 +15918,14 @@ p, li {
   margin: 0;
   line-height: 170px;
 }
+@media (max-width: 767px) {
+  .home__links__banner {
+    height: 85px;
+  }
+  .home__links__banner h2 {
+    line-height: 85px;
+  }
+}
 .home__links__gradient {
   height: 100%;
   width: 100%;
@@ -15914,6 +15949,16 @@ p, li {
   cursor: pointer;
   background-color: rgba(76, 76, 76, 0.7);
   transition: all 0.2s linear;
+}
+@media (max-width: 767px) {
+  .home__links .row .col-sm-4 {
+    padding: 45px 0;
+  }
+  .home__links .row .col-sm-4 h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 35px;
+  }
 }
 .home__links .row .col-sm-4.mobile-arrow {
   border-left: 3px solid white;
@@ -16148,7 +16193,8 @@ p, li {
 @media (max-width: 767px) {
   .page__about__rightcont {
     width: auto;
-    padding: 0;
+    padding: 0 20px;
+    margin: 0;
   }
 }
 .page__banner {
