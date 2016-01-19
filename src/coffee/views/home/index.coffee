@@ -20,7 +20,7 @@ Home = Backbone.View.extend
     @.render()
     $('.parallax-window').parallax()
 
-    if $(window).width() >= 768
+    if $(window).width() >= 769
       @.initAnimation()
 
   initAnimation: ->
