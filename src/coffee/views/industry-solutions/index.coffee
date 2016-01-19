@@ -42,6 +42,8 @@ Solutions = Backbone.View.extend
 
     window.location.hash = section
 
+    $(window).resize()
+
   destroy: ->
     @.$el.find('.parallax-window').each ->
       try $.fn.parallax.Constructor.destroy @

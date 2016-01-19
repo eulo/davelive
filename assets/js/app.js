@@ -48931,7 +48931,8 @@ Solutions = Backbone.View.extend({
     $(".page__section--" + section).addClass('active');
     $('[data-section]').removeClass('active');
     $this.addClass('active');
-    return window.location.hash = section;
+    window.location.hash = section;
+    return $(window).resize();
   },
   destroy: function() {
     return this.$el.find('.parallax-window').each(function() {

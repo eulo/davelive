@@ -15956,7 +15956,8 @@ p, li {
   background: url(../img/industry-solutions/cut-out.png);
   background-repeat: no-repeat;
   background-position: center;
-  height: 32px;
+  background-size: cover;
+  height: 21px;
   position: absolute;
   bottom: 0;
   width: 100%;
