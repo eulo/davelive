@@ -15371,6 +15371,7 @@ p, li {
 .home__header__container {
   height: 100%;
   padding-bottom: 60px;
+  overflow: hidden;
 }
 .home__header__container .video-js {
   background-color: #d82520;

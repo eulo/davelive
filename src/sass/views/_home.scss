@@ -13,6 +13,7 @@
     &__container {
       height: 100%;
       padding-bottom: 60px;
+      overflow: hidden;
 
       .video-js {
         background-color: $colRed;
