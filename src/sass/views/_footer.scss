@@ -49,6 +49,8 @@
 
         a {
           color: white;
+          display: inline-block;
+
           br {
             display: none;
             @include mq(xs) {
@@ -71,7 +73,6 @@
       background-size: contain;
       background-position: center;
       margin-right: 1em;
-      @include vertical-align();
       
       &--email {
         background-image:url(../img/home/contact/Email.png);
