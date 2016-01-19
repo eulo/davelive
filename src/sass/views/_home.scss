@@ -609,6 +609,9 @@
 
         &.mobile-arrow {
           border-left: 3px solid white;
+          &.no-right-border {
+            border-left: 0;
+          }
           @include mq(xs) {
             border: none;
 

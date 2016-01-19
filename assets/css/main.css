@@ -15963,6 +15963,9 @@ p, li {
 .home__links .row .col-sm-4.mobile-arrow {
   border-left: 3px solid white;
 }
+.home__links .row .col-sm-4.mobile-arrow.no-right-border {
+  border-left: 0;
+}
 @media (max-width: 768px) {
   .home__links .row .col-sm-4.mobile-arrow {
     border: none;
@@ -16247,6 +16250,11 @@ p, li {
   padding: 180px 0;
   color: white;
   background: transparent;
+}
+@media (max-width: 1024px) {
+  .footer {
+    padding: 90px 0;
+  }
 }
 @media (max-width: 768px) {
   .footer {

@@ -5,6 +5,10 @@
   color: white;
   background: transparent;
 
+  @media (max-width: 1024px) {
+    padding: 90px 0;
+  }
+
   @include mq(xs) {
     padding: 60px 0;
   }
