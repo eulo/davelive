@@ -13743,6 +13743,50 @@ Copyright (c) 2015 Daniel Eden
   animation-name: slideOutUp;
 }
 
+/* Bob */
+@-webkit-keyframes hvr-bob {
+  from, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob {
+  from, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+.hvr-bob {
+  -webkit-animation-name: hvr-bob;
+  animation-name: hvr-bob;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+
 .video-js .vjs-big-play-button:before, .video-js .vjs-control:before, .video-js .vjs-modal-dialog {
   position: absolute;
   top: 0;
@@ -15382,12 +15426,14 @@ p, li {
   position: absolute;
   bottom: 100px;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -70px;
   z-index: 10;
+  cursor: pointer;
 }
 .home__header .scroll-down-info p {
+  width: 140px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
 }
 .home__header .scroll-down-info i {

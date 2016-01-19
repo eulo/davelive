@@ -14,12 +14,14 @@
       position: absolute;
       bottom: 100px;
       left: 50%;
-      transform: translateX(-50%);
+      margin-left: -70px;
       z-index: 10;
+      cursor: pointer;
 
       p {
+        width: 140px;
         text-align: center;
-        font-weight: 600;
+        font-weight: 400;
         font-size: 16px;
       }
       i {

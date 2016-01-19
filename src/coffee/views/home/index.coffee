@@ -12,6 +12,7 @@ Home = Backbone.View.extend
   additionalEvents: {}
   originalEvents:
     'click [data-link]': 'link'
+    'click .scroll-down-info': 'scrollDown'
 
   events: ->
     return _.extend {}, @.originalEvents, @.additionalEvents
@@ -89,6 +90,11 @@ Home = Backbone.View.extend
     event.preventDefault()
     view = $(event.currentTarget).attr 'href'
     Base.GlobalEvents.trigger 'navigate', view
+
+  scrollDown: ->
+    $('html, body').animate
+      scrollTop: $(window).height() + 'px'
+    , 800
 
   destroy: ->
     if @.Carousel
