@@ -7,13 +7,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
-    
+    overflow: hidden;
 
     &__container {
       height: 100%;
       padding-bottom: 60px;
-      overflow: hidden;
 
       .video-js {
         background-color: $colRed;

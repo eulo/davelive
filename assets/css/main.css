@@ -15370,11 +15370,11 @@ p, li {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 .home__header__container {
   height: 100%;
   padding-bottom: 60px;
-  overflow: hidden;
 }
 .home__header__container .video-js {
   background-color: #d82520;
@@ -16040,7 +16040,6 @@ p, li {
 .page__section {
   padding: 5% 0;
   position: relative;
-  overflow: hidden;
 }
 @media (max-width: 767px) {
   .page__section {

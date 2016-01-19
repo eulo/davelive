@@ -94,7 +94,7 @@
 &__section {
   padding: 5% 0;
   position: relative;
-  overflow: hidden;
+  //overflow: hidden;
 
   @include mq(xs) {
     padding: 60px 0;
