@@ -15430,6 +15430,11 @@ p, li {
   z-index: 10;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .home__header .scroll-down-info {
+    bottom: 70px;
+  }
+}
 .home__header .scroll-down-info p {
   width: 140px;
   text-align: center;
